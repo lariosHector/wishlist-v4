@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wishlist • Héctor</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind via CDN (solo para layout/utilidades) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Estilos propios -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="bg-page text-slate-900">
+    <div class="decor-gradient decor-gradient--one"></div>
+    <div class="decor-gradient decor-gradient--two"></div>
+
+    <header class="site-header sticky top-0 z-30 bg-white/60 backdrop-blur-sm">
+      <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+        <a class="flex items-center gap-3" href="#">
+          <h1 class="text-2xl md:text-3xl font-extrabold tracking-tight">Wishlist</h1>
+        </a>
+
+        <!-- Desktop nav -->
+        <nav class="hidden md:flex items-center gap-2">
+          <a href="#setup" class="chip chip--ghost">Setup</a>
+          <a href="#daylife" class="chip chip--ghost">Día a día</a>
+          <a href="#bass" class="chip chip--ghost">Música</a>
+          <a href="#perfumes" class="chip chip--ghost">Perfumes</a>
+          <a href="#fun" class="chip chip--ghost">Entretenimiento</a>
+          <a href="#snacks" class="chip chip--ghost">Snacks</a>
+        </nav>
+
+        <script>
+          // Cierra el <details> del menú móvil cuando se hace click en un enlace de ancla
+          document.addEventListener('DOMContentLoaded', function () {
+            const details = document.querySelector('header details');
+            if (!details) return;
+            details.querySelectorAll('a[href^="#"]').forEach(link => {
+              link.addEventListener('click', () => { details.open = false; });
+            });
+          });
+        </script>
+
+        <!-- Mobile menu (no JS) -->
+        <details class="md:hidden relative">
+          <summary
+            class="inline-flex items-center gap-2 p-2 rounded-md hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-sky-400"
+            aria-haspopup="true"
+          >
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="sr-only">Abrir navegación</span>
+          </summary>
+
+          <div class="absolute right-0 mt-2 w-64 bg-white/95 backdrop-blur-md rounded-lg shadow-lg p-3 flex flex-col gap-2">
+            <a href="#setup" class="chip chip--ghost w-full text-left">Setup</a>
+            <a href="#daylife" class="chip chip--ghost w-full text-left">Día a día</a>
+            <a href="#bass" class="chip chip--ghost w-full text-left">Bajo eléctrico</a>
+            <a href="#perfumes" class="chip chip--ghost w-full text-left">Perfumes</a>
+            <a href="#fun" class="chip chip--ghost w-full text-left">Entretenimiento</a>
+            <a href="#snacks" class="chip chip--ghost w-full text-left">Snacks</a>
+          </div>
+        </details>
+      </div>
+    </header>
+
+    <!-- Hero: contenido que antes estaba en site-subtitle -->
+    <section class="hero max-w-6xl mx-auto px-4 py-12 md:py-20">
+      <div class="rounded-2xl p-6 md:p-12 bg-gradient-to-r from-slate-50 to-white shadow-sm">
+        <p class="text-sm text-sky-600 font-medium uppercase">Wishlist para toda ocasión</p>
+        <h2 class="mt-3 text-3xl md:text-4xl font-extrabold tracking-tight">Ideas de regalos para Héctor</h2>
+        <p class="mt-4 text-slate-600 max-w-3xl leading-relaxed">
+          Aquí mantengo una lista actualizada de cosas que me interesan: tecnología, música, libros,
+          ropa y accesorios. Encontrarás enlaces directos a productos de referencia para facilitar la
+          compra si quieres regalar algo (no es obligatorio que sea exactamente el mismo modelo o tienda).
+        </p>
+      </div>
+    </section>
+
+    <main class="max-w-6xl mx-auto px-4 pb-16 space-y-16">
+      <!-- Setup de trabajo -->
+      <section id="setup" class="category-block">
+        <div class="category-header grid grid-cols-1 gap-6 items-center">
+          <div>
+            <p class="category-kicker">Setup &amp; escritorio</p>
+            <h2 class="category-title leading-tight">
+              Para un espacio de trabajo cómodo, ordenado y con buena iluminación.
+            </h2>
+            <p class="category-desc">
+              Multicontactos, organizadores, soportes, lámparas y accesorios pensados para optimizar espacio y flujo de trabajo.
+              Productos versátiles que funcionan en oficina, estudio o escritorio en casa.
+            </p>
+          </div>
+        </div>
+
+        <!-- Grid: responsive columns -->
+        <div class="cards-grid grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
+          <!-- Featured: estación de trabajo (spans full width on lg) -->
+          <article class="gift-card col-span-1 lg:col-span-3 flex flex-col h-full transform transition hover:-translate-y-1">
+            <div class="gift-card__media gift-card__media--hero overflow-hidden rounded-t-xl">
+              <img
+                src="https://images.unsplash.com/photo-1662638600507-0846616ec508?q=80&w=2530&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Estación de trabajo moderna"
+                class="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
+
+            <div class="gift-card__body p-6 flex flex-col flex-1">
+              <h3 class="gift-card__title">Setup ideal</h3>
+              <p class="text-slate-600 mt-2 flex-1">
+                Una selección para tener un escritorio limpio y ergonómico: multicontactos con puertos, luz de monitor, soporte para monitor, mousepad extendido y organizador de cables.
+              </p>
+
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="tag">Ergonómico</span>
+                <span class="tag">Minimalista</span>
+                <span class="tag">Compatibilidad USB-C</span>
+              </div>
+
+              <div class="mt-4 flex flex-wrap gap-3">
+                <a href="https://www.mi.com/mx/product/mi-computer-monitor-light-bar/buy/" target="_blank" rel="noopener noreferrer" class="gift-card__button">Luz monitor — Xiaomi</a>
+                <a href="https://www.corsair.com/lm/es/p/mousepads/ch-9417080-ww/mm700-rgb-extended-3xl-cloth-gaming-mouse-pad-desk-mat-ch-9417080-ww" target="_blank" rel="noopener noreferrer" class="chip chip--ghost">Mousepad Corsair</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Multicontacto destacado -->
+          <article class="gift-card flex flex-col h-full transform transition hover:shadow-md">
+            <div class="gift-card__media h-44 overflow-hidden bg-white flex items-center justify-center">
+              <img
+                src="https://m.media-amazon.com/images/I/41-h7XXl5SL._SS600_.jpg"
+                alt="Multicontacto escritorio con 6 enchufes"
+                loading="lazy"
+                class="w-full h-full object-contain p-4"
+              />
+            </div>
+
+            <div class="gift-card__body p-6 flex flex-col flex-1">
+              <h3 class="gift-card__title">Multicontacto de escritorio</h3>
+              <div class="gift-card__tags mt-2">
+                <span class="tag">6 enchufes</span>
+                <span class="tag">USB&nbsp;C PD</span>
+              </div>
+              <div class="mt-auto">
+                <a href="https://www.amazon.com.mx/dp/B0BS72G3LY/" target="_blank" rel="noopener noreferrer" class="gift-card__button">Ver en Amazon</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Multicontacto clip de mesa -->
+          <article class="gift-card flex flex-col h-full transform transition hover:shadow-md">
+        <div class="gift-card__media h-44 overflow-hidden bg-white flex items-center justify-center">
+          <img
+            src="https://m.media-amazon.com/images/I/318CEcxN97L._SS600_.jpg"
+            alt="Multicontacto AnnTane con USB C y carga rápida"
+            loading="lazy"
+            class="w-full h-full object-cover"
+          />
+        </div>
+
+        <div class="gift-card__body p-6 flex flex-col flex-1">
+          <h3 class="gift-card__title">Multicontacto AnnTane (clip de mesa)</h3>
+          <div class="gift-card__tags mt-2">
+            <span class="tag">40W total</span>
+            <span class="tag">4x USB&nbsp;C</span>
+          </div>
+          <div class="mt-auto">
+            <a href="https://www.amazon.com.mx/dp/B0F625CQM2/" target="_blank" rel="noopener noreferrer" class="gift-card__button">Ver en Amazon</a>
+          </div>
+        </div>
+          </article>
+
+          <!-- Mousepad Asus -->
+          <article class="gift-card flex flex-col h-full transform transition hover:shadow-md">
+        <div class="gift-card__media h-44 overflow-hidden bg-white flex items-center justify-center">
+          <img
+            src="https://m.media-amazon.com/images/I/414Y+Q2dTfL._SS600_.jpg"
+            alt="Mousepad Asus ROG Sheath extragrande"
+            loading="lazy"
+            class="w-full h-full object-cover"
+          />
+        </div>
+
+        <div class="gift-card__body p-6 flex flex-col flex-1">
+          <h3 class="gift-card__title">Mousepad Asus ROG Sheath</h3>
+          <div class="gift-card__tags mt-2">
+            <span class="tag">Tamaño XL</span>
+            <span class="tag">Base antideslizante</span>
+          </div>
+          <div class="mt-auto">
+            <a href="https://www.amazon.com.mx/dp/B01G5ATZAE/" target="_blank" rel="noopener noreferrer" class="gift-card__button">Ver en Amazon</a>
+          </div>
+        </div>
+          </article>
+
+          <!-- Soporte monitor Linkon -->
+          <article class="gift-card gift-card--soft flex flex-col h-full transform transition hover:shadow-md">
+        <div class="gift-card__media h-44 overflow-hidden bg-white flex items-center justify-center">
+          <img src="https://ss637.liverpool.com.mx/xl/1175098409.jpg" loading="lazy" alt="Soporte Linkon"
+            class="w-full h-full object-cover">
+        </div>
+
+        <div class="gift-card__body p-6 flex flex-col flex-1">
+          <h3 class="gift-card__title">Soporte para monitor Linkon</h3>
+          <div class="gift-card__tags mt-2">
+            <span class="tag">Ajustable</span>
+            <span class="tag">Liverpool</span>
+          </div>
+          <div class="mt-auto">
+            <a href="https://www.liverpool.com.mx/tienda/pdp/soporte-para-monitor-de-escritorio-linkon/99983759943" target="_blank" rel="noopener noreferrer" class="gift-card__button">Ver en Liverpool</a>
+          </div>
+        </div>
+          </article>
+
+          <!-- Soporte móvil / TV -->
+          <article class="gift-card flex flex-col h-full transform transition hover:shadow-md">
+        <div class="gift-card__media h-44 overflow-hidden bg-white flex items-center justify-center">
+          <img
+            src="https://m.media-amazon.com/images/I/41r4JFl5QoL._SS600_.jpg"
+            alt="Soporte móvil para TV o monitor"
+            loading="lazy"
+            class="w-full h-full object-contain p-4"
+          />
+        </div>
+
+        <div class="gift-card__body p-6 flex flex-col flex-1">
+          <h3 class="gift-card__title">Soporte móvil para monitor / TV</h3>
+          <div class="gift-card__tags mt-2">
+            <span class="tag">Hasta 65″</span>
+            <span class="tag">Altura ajustable</span>
+          </div>
+          <div class="mt-auto">
+            <a href="https://www.amazon.com.mx/dp/B0DHZ6H7JL/" target="_blank" rel="noopener noreferrer" class="gift-card__button">Ver en Amazon</a>
+          </div>
+        </div>
+          </article>
+
+          <!-- Luz de monitor Xiaomi -->
+          <article class="gift-card gift-card--soft flex flex-col h-full transform transition hover:shadow-md">
+        <div class="gift-card__media h-44 overflow-hidden bg-white flex items-center justify-center">
+          <img
+            src="https://m.media-amazon.com/images/I/414OKh3xZlL.jpg"
+            alt="Xiaomi Mi Computer Monitor Light Bar"
+            loading="lazy"
+            class="w-full h-full object-contain p-4"
+          />
+        </div>
+
+        <div class="gift-card__body p-6 flex flex-col flex-1">
+          <h3 class="gift-card__title">Xiaomi Mi Computer Monitor Light Bar</h3>
+          <div class="gift-card__tags mt-2">
+            <span class="tag">Luz asimétrica</span>
+            <span class="tag">Ahorra espacio</span>
+          </div>
+          <div class="mt-auto">
+            <a href="https://www.mi.com/mx/product/mi-computer-monitor-light-bar/buy/" target="_blank" rel="noopener noreferrer" class="gift-card__button">Ver en Xiaomi</a>
+          </div>
+        </div>
+          </article>
+
+          <!-- Tarjeta: Alfombrilla Corsair -->
+          <article class="gift-card gift-card--soft flex flex-col h-full transform transition hover:shadow-md">
+        <div class="gift-card__media h-44 overflow-hidden bg-white flex items-center justify-center">
+          <img
+            src="https://m.media-amazon.com/images/I/21GzCLYWWeL._SS600_.jpg"
+            alt="Alfombrilla Corsair MM700 RGB extendida"
+            loading="lazy"
+            class="w-full h-full object-contain p-4"
+          />
+        </div>
+
+        <div class="gift-card__body p-6 flex flex-col flex-1">
+          <h3 class="gift-card__title">Mousepad Corsair MM700 RGB</h3>
+          <div class="gift-card__tags mt-2">
+            <span class="tag">XL</span>
+            <span class="tag">RGB</span>
+          </div>
+          <div class="mt-auto">
+            <a
+          href="https://www.corsair.com/lm/es/p/mousepads/ch-9417080-ww/mm700-rgb-extended-3xl-cloth-gaming-mouse-pad-desk-mat-ch-9417080-ww"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="gift-card__button">
+          Ver en Corsair
+            </a>
+          </div>
+        </div>
+          </article>
+
+          <!-- Echo Dot (asistente) -->
+          <article class="gift-card gift-card--soft flex flex-col h-full transform transition hover:shadow-md">
+        <div class="gift-card__media h-44 overflow-hidden bg-white flex items-center justify-center">
+          <img
+            src="https://m.media-amazon.com/images/I/319ZaoJcE6L._AC_.jpg"
+            alt="Amazon Echo Dot (5ª gen)"
+            loading="lazy"
+            class="w-full h-full object-contain p-4"
+          />
+        </div>
+
+        <div class="gift-card__body p-6 flex flex-col flex-1">
+          <h3 class="gift-card__title">Amazon Echo Dot (5ª gen)</h3>
+          <div class="gift-card__tags mt-2">
+            <span class="tag">Alexa</span>
+            <span class="tag">Asistente de voz</span>
+          </div>
+          <div class="mt-auto">
+            <a
+          href="https://www.amazon.com.mx/dp/B09B8V1LZ3/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="gift-card__button"
+            >
+          Ver en Amazon
+            </a>
+          </div>
+        </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Día a día -->
+      <section id="daylife" class="category-block">
+        <div class="category-header grid grid-cols-1 gap-6 items-center">
+          <div>
+            <p class="category-kicker">Vida diaria &amp; movilidad</p>
+            <h2 class="category-title leading-tigh">Cosas que uso todos los días</h2>
+            <p class="category-desc">
+              Mochilas, portafolios y accesorios que acompañan la escuela, el trabajo y los trayectos.
+            </p>
+          </div>
+        </div>
+
+        <div class="cards-grid grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 gap-6 mt-6 ">
+          <article class="gift-card col-span-1 lg:col-span-3 flex flex-col h-full transform transition hover:-translate-y-1">
+            <div class="gift-card__media gift-card__media--hero overflow-hidden rounded-t-xl">
+              <img
+                src="https://images.unsplash.com/3/www.madebyvadim.com.jpg?q=80&w=1764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Estación de trabajo moderna"
+                class="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
+
+            <div class="gift-card__body p-6 flex flex-col flex-1">
+              <h3 class="gift-card__title">Accesorios para el día a día</h3>
+              <p class="text-slate-600 mt-2 flex-1">
+                Productos versátiles y funcionales para el uso diario: mochilas, portafolios, termos y más.
+              </p>
+
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="tag">Ergonómico</span>
+                <span class="tag">Minimalista</span>
+                <span class="tag">Compatibilidad USB-C</span>
+              </div>
+
+              <div class="mt-4 flex flex-wrap gap-3">
+                <a href="https://www.mi.com/mx/product/mi-computer-monitor-light-bar/buy/" target="_blank" rel="noopener noreferrer" class="gift-card__button">Luz monitor — Xiaomi</a>
+                <a href="https://www.corsair.com/lm/es/p/mousepads/ch-9417080-ww/mm700-rgb-extended-3xl-cloth-gaming-mouse-pad-desk-mat-ch-9417080-ww" target="_blank" rel="noopener noreferrer" class="chip chip--ghost">Mousepad Corsair</a>
+              </div>
+            </div>
+          </article> 
+
+           <!-- Mochila Borealis -->
+          <article class="gift-card">
+            <div class="gift-card__media">
+              <img
+                src="https://m.media-amazon.com/images/I/41VxXMEmszL._SS600_.jpg"
+                alt="Mochila The North Face Borealis"
+                loading="lazy"
+              />
+            </div>
+            <div class="gift-card__body">
+              <h3 class="gift-card__title">Mochila The North Face Borealis</h3>
+              <div class="gift-card__tags">
+                <span class="tag">Para laptop</span>
+                <span class="tag">Uso diario</span>
+              </div>
+              <a
+                href="https://www.amazon.com.mx/dp/B0CN9S5SWD/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="gift-card__button"
+              >
+                Ver en Amazon
+              </a>
+            </div>
+          </article>
+
+          <!-- Portafolios Lubardy -->
+          <article class="gift-card gift-card--soft">
+            <div class="gift-card__media">
+              <img
+                src="https://m.media-amazon.com/images/I/71-ztHgv9YL._AC_SL1500_.jpg"
+                alt="Portafolios Lubardy para laptop"
+                loading="lazy"
+              />
+            </div>
+            <div class="gift-card__body">
+              <h3 class="gift-card__title">Portafolios Lubardy para laptop</h3>
+              <div class="gift-card__tags">
+                <span class="tag">16″</span>
+                <span class="tag">Imitación cuero</span>
+              </div>
+              <a
+                href="https://www.amazon.com.mx/dp/B0D83VR6GV/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="gift-card__button"
+              >
+                Ver en Amazon 
+              </a>
+            </div>
+          </article>
+
+          <!-- Slot termos -->
+          <article class="gift-card gift-card--soft">
+            <div class="gift-card__media">
+              <img src="https://m.media-amazon.com/images/I/81nnQZkxoiL._AC_SX679_.jpg" alt="Mochila The North Face Borealis" loading="lazy" />
+            </div>
+            <div class="gift-card__body">
+              <h3 class="gift-card__title">The North Face Boreal MochilaUnisex</h3>
+              <div class="gift-card__tags">
+                <span class="tag">Accesorios</span>
+                <span class="tag">Mochilas</span>
+              </div>
+              <a
+                href="https://www.amazon.com.mx/dp/B0CN9VGKD5/?coliid=IKHPTGLIW2LLX&colid=3AY48F4EYMKCM&ref_=list_c_wl_lv_ov_lig_dp_it&th=1&psc=1"
+                class="gift-card__button"
+              >
+                Ver en Amazon
+              </a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Accesorios bajo eléctrico -->
+      <section id="bass" class="category-block">
+        <div class="category-header">
+          <p class="category-kicker">Música</p>
+          <h2 class="category-title">Accesorios para bajo eléctrico</h2>
+          <p class="category-desc">
+            Correas cómodas y resistentes que combinen con el estilo y aguanten ensayos largos.
+          </p>
+        </div>
+
+        <div class="cards-grid">
+          <!-- Fender correa piel -->
+          <article class="gift-card">
+            <div class="gift-card__media">
+              <img
+                src="https://m.media-amazon.com/images/I/41IHjUTR-EL._SS600_.jpg"
+                alt="Correa de piel Fender"
+                loading="lazy"
+              />
+            </div>
+            <div class="gift-card__body">
+              <h3 class="gift-card__title">Correa de piel Fender</h3>
+              <div class="gift-card__tags">
+                <span class="tag">Piel</span>
+                <span class="tag">Clásica</span>
+              </div>
+              <a
+                href="https://www.amazon.com.mx/dp/B000EELFI8/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="gift-card__button"
+              >
+                Ver en Amazon
+              </a>
+            </div>
+          </article>
+
+          <!-- Fender pana -->
+          <article class="gift-card">
+            <div class="gift-card__media">
+              <img
+                src="https://m.media-amazon.com/images/I/41wZ5YnU9bL._SS600_.jpg"
+                alt="Correa Fender de pana"
+                loading="lazy"
+              />
+            </div>
+            <div class="gift-card__body">
+              <h3 class="gift-card__title">Correa Fender de pana</h3>
+              <div class="gift-card__tags">
+                <span class="tag">Vintage</span>
+                <span class="tag">Suave</span>
+              </div>
+              <a
+                href="https://www.amazon.com.mx/dp/B0B9QN1H4G/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="gift-card__button"
+              >
+                Ver en Amazon
+              </a>
+            </div>
+          </article>
+
+          <!-- Fender animal print -->
+          <article class="gift-card">
+            <div class="gift-card__media">
+              <img
+                src="https://m.media-amazon.com/images/I/41+GI4pTT4L._SS600_.jpg"
+                alt="Correa Fender Animal Print"
+                loading="lazy"
+              />
+            </div>
+            <div class="gift-card__body">
+              <h3 class="gift-card__title">Correa Fender Animal Print</h3>
+              <div class="gift-card__tags">
+                <span class="tag">Cebra</span>
+                <span class="tag">Statement</span>
+              </div>
+              <a
+                href="https://www.amazon.com.mx/dp/B08CSXZDVP/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="gift-card__button"
+              >
+                Ver en Amazon
+              </a>
+            </div>
+          </article>
+
+          <!-- Levy's Leather -->
+          <article class="gift-card">
+            <div class="gift-card__media">
+              <img
+                src="https://m.media-amazon.com/images/I/31gO1Lu+UCL._SS600_.jpg"
+                alt="Correa de piel Levy's Leathers"
+                loading="lazy"
+              />
+            </div>
+            <div class="gift-card__body">
+              <h3 class="gift-card__title">Correa Levy&apos;s de piel ancha</h3>
+              <div class="gift-card__tags">
+                <span class="tag">7.6 cm</span>
+                <span class="tag">Extra cómoda</span>
+              </div>
+              <a
+                href="https://www.amazon.com.mx/dp/B0845Q9BTT/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="gift-card__button"
+              >
+                Ver en Amazon
+              </a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Perfumes -->
+      <section id="perfumes" class="category-block">
+        <div class="category-header">
+          <p class="category-kicker">Fragancias</p>
+          <h2 class="category-title">Perfumes árabes y asequibles</h2>
+          <p class="category-desc">
+            Aromas intensos, cálidos y con buena duración sin salir del presupuesto.
+          </p>
+        </div>
+
+        <div class="cards-grid">
+          <!-- Polo Sport (referencia occidental, pero fragancia) -->
+          <article class="gift-card gift-card--soft">
+            <div class="gift-card__media gift-card__media--icon">
+              <span class="emoji-icon">🧴</span>
+            </div>
+            <div class="gift-card__body">
+              <h3 class="gift-card__title">Ralph Lauren Polo Sport EDT</h3>
+              <div class="gift-card__tags">
+                <span class="tag">Fresco</span>
+                <span class="tag">Clásico</span>
+              </div>
+              <a
+                href="https://www.amazon.com.mx/dp/B00EXW1PRS/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="gift-card__button"
+              >
+                Ver en Amazon
+              </a>
+            </div>
+          </article>
+
+          <!-- Slot perfumes árabes genéricos -->
+          <article class="gift-card gift-card--soft">
+            <div class="gift-card__media gift-card__media--icon">
+              <span class="emoji-icon">🌙</span>
+            </div>
+            <div class="gift-card__body">
+              <h3 class="gift-card__title">Perfumes árabes</h3>
+              <div class="gift-card__tags">
+                <span class="tag">Amaderados</span>
+                <span class="tag">Dulces / especiados</span>
+              </div>
+              <p class="gift-card__hint">
+                Ideal si encuentras opciones en tiendas como FragranceX, Notino o marketplaces con
+                reseñas positivas.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Entretenimiento -->
+      <section id="fun" class="category-block">
+        <div class="category-header">
+          <p class="category-kicker">Entretenimiento &amp; coleccionables</p>
+          <h2 class="category-title">Cosas frikis que siempre se agradecen</h2>
+          <p class="category-desc">
+            Posters, cómics, figuras, vinilos o sets de construcción que agregan personalidad al espacio.
+          </p>
+        </div>
+
+        <div class="cards-grid">
+          <!-- LEGO Jazz Quartet -->
+          <article class="gift-card gift-card--soft">
+            <div class="gift-card__media gift-card__media--icon">
+              <span class="emoji-icon">🎷</span>
+            </div>
+            <div class="gift-card__body">
+              <h3 class="gift-card__title">LEGO Ideas Jazz Quartet 21334</h3>
+              <div class="gift-card__tags">
+                <span class="tag">Set de construcción</span>
+                <span class="tag">Música &amp; display</span>
+              </div>
+              <a
+                href="https://www.lego.com/es-mx/product/jazz-quartet-21334"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="gift-card__button"
+              >
+                Ver en LEGO
+              </a>
+            </div>
+          </article>
+
+          <!-- Libros & cómics (genérico, links abajo) -->
+          <article class="gift-card gift-card--soft">
+            <div class="gift-card__media gift-card__media--icon">
+              <span class="emoji-icon">📚</span>
+            </div>
+            <div class="gift-card__body">
+              <h3 class="gift-card__title">Libros, novelas &amp; cómics</h3>
+              <div class="gift-card__tags">
+                <span class="tag">Marvel</span>
+                <span class="tag">Literatura</span>
+              </div>
+              <p class="gift-card__hint">
+                En la sección de lista completa puedes ver todos los libros y cómics de la wishlist.
+              </p>
+            </div>
+          </article>
+
+          <!-- Vinilos / Blu-ray genérico -->
+          <article class="gift-card gift-card--soft">
+            <div class="gift-card__media gift-card__media--icon">
+              <span class="emoji-icon">💿</span>
+            </div>
+            <div class="gift-card__body">
+              <h3 class="gift-card__title">Vinilos &amp; Blu-ray</h3>
+              <div class="gift-card__tags">
+                <span class="tag">Ediciones especiales</span>
+                <span class="tag">Colección</span>
+              </div>
+              <p class="gift-card__hint">
+                Perfecto para discos de jazz latino, salsa, boogaloo o pelis favoritas en edición bonita.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Dulces -->
+      <section id="snacks" class="category-block">
+        <div class="category-header">
+          <p class="category-kicker">Extras comestibles</p>
+          <h2 class="category-title">Golosinas &amp; dulcecitos</h2>
+          <p class="category-desc">
+            Para acompañar cualquier detalle con algo rico: chocolates, gomitas, café o snacks.
+          </p>
+        </div>
+
+        <div class="cards-grid">
+          <article class="gift-card gift-card--soft">
+            <div class="gift-card__media gift-card__media--icon">
+              <span class="emoji-icon">🍫</span>
+            </div>
+            <div class="gift-card__body">
+              <h3 class="gift-card__title">Chocolates &amp; café</h3>
+              <div class="gift-card__tags">
+                <span class="tag">Tabletas</span>
+                <span class="tag">Café de especialidad</span>
+              </div>
+              <p class="gift-card__hint">
+                Aquí puedes agregar links a cajitas de regalo con chocolates, galletas o café.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <p class="text-xs sm:text-sm text-slate-500">
+          Wishlist editable • Pensada para que puedas agregar o reemplazar productos cuando quieras.
+        </p>
+        <p class="text-xs sm:text-sm text-slate-400">
+          Héctor Larios · 2025
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

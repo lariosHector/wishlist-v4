@@ -22,6 +22,7 @@ const gifts = [
     search: "multicontacto escritorio clip mesa AnnTane 40W",
     storeUrl: "https://www.amazon.com.mx/dp/B0F625CQM2/",
     storeLabel: "Ver en Amazon",
+    priority: true,
   },
   {
     id: "mousepad-asus",
@@ -85,6 +86,7 @@ const gifts = [
     storeUrl:
       "https://www.mi.com/mx/product/mi-computer-monitor-light-bar/buy/",
     storeLabel: "Ver en Xiaomi",
+    priority: true,
   },
   {
     id: "echo-dot",
@@ -94,6 +96,16 @@ const gifts = [
     tags: ["Alexa", "Asistente de voz"],
     search: "Amazon Echo Dot 5a generación",
     storeUrl: "https://www.amazon.com.mx/dp/B09B8V1LZ3/",
+    storeLabel: "Ver en Amazon",
+  },
+  {
+    id: "Luces-LED-TV-Retroiluminación-3-Lite-con-Fish-Eye-Función",
+    name: "Luces LED TV Retroiluminación 3 Lite con Fish Eye Función",
+    category: "setup",
+    image: "https://m.media-amazon.com/images/I/71j1PNlJTxL._AC_SL1500_.jpg",
+    tags: ["Ambiente", "Colores"],
+    search: "Luces LED TV Retroiluminación 3 Lite con Fish Eye Función",
+    storeUrl: "https://a.co/d/61ySk0G",
     storeLabel: "Ver en Amazon",
   },
 
@@ -119,6 +131,27 @@ const gifts = [
     storeLabel: "Ver en Amazon",
   },
   {
+    id: "Portafolios-para-Hombre-15.6-Pulgadas-Piel-Maletin-Laptop-Bolsa-de-Mensajero-Impermeable-Vintage-Cuero",
+    name: "Portafolios para Hombre 15.6 Pulgadas Piel Maletín Laptop Bolsa de Mensajero Impermeable Vintage Cuero",
+    category: "daylife",
+    image: "https://m.media-amazon.com/images/I/71-AED-AWSL._AC_SL1100_.jpg",
+    tags: ["15.6″", "Cuero vintage"],
+    search:
+      "Portafolios para Hombre 15.6 Pulgadas Piel Maletín Laptop Bolsa de Mensajero Impermeable Vintage Cuero",
+    storeUrl: "https://a.co/d/hEj5viM",
+    storeLabel: "Ver en Amazon",
+  },
+  {
+    id: "Stanley-Botella-Clásica-al-Vacío",
+    name: "Stanley Botella Clásica al Vacío",
+    category: "daylife",
+    image: "https://m.media-amazon.com/images/I/61hxLmqn7GL._AC_SL1500_.jpg",
+    tags: ["A prueba de fugas", "Acero inoxidable"],
+    search: "Stanley Botella Clásica al Vacío 532ml",
+    storeUrl: "https://a.co/d/1DK1w2z",
+    storeLabel: "Ver en Amazon",
+  },
+  {
     id: "Funda-de-FineWoven-con-MagSafe-para-iPhone-15",
     name: "Funda de FineWoven con MagSafe para iPhone 15",
     category: "daylife",
@@ -128,7 +161,26 @@ const gifts = [
     storeUrl: "https://a.co/d/0Y6APRB",
     storeLabel: "Ver en Amazon",
   },
-
+  {
+    id: "Tommy-Hilfiger-Original-Stretch-Camisa-Hombre",
+    name: "Tommy Hilfiger Original Stretch Camisa Hombre",
+    category: "daylife",
+    image: "https://m.media-amazon.com/images/I/61H0kh5cJGL._AC_SY879_.jpg",
+    tags: ["Casual", "Stretch"],
+    search: "Tommy Hilfiger Original Stretch Camisa Hombre",
+    storeUrl: "https://a.co/d/8ZOywoQ",
+    storeLabel: "Ver en Amazon",
+  },
+  {
+    id: "Stanley-AeroLight-Botella-de-tránsito-de-20-onzas",
+    name: "Stanley AeroLight - Botella de tránsito de 20 onzas",
+    category: "daylife",
+    image: "https://m.media-amazon.com/images/I/71tR8LNu4mL._AC_SL1500_.jpg",
+    tags: ["Ligera", "A prueba de fugas"],
+    search: "Stanley AeroLight Botella de tránsito de 20 onzas",
+    storeUrl: "https://a.co/d/j2vpnQK",
+    storeLabel: "Ver en Amazon",
+  },
   // === BAJO ELÉCTRICO ==========================================
   {
     id: "fender-correa-piel",
@@ -413,6 +465,70 @@ const gifts = [
     storeUrl: "https://a.co/d/dbZGAwd",
     storeLabel: "Ver en Amazon",
   },
+  {
+    id: "Amazon-fire-tv-stick-4k-max",
+    name: "Amazon Fire TV Stick 4K Max",
+    category: "all",
+    image: "https://m.media-amazon.com/images/I/71B0drJ9K2L._AC_SL1500_.jpg",
+    tags: ["Streaming", "4K"],
+    search: "Amazon Fire TV Stick 4K Max",
+    storeUrl: "https://a.co/d/gcBLt7V",
+    storeLabel: "Ver en Amazon",
+  },
+  {
+    id: "Sony-PS-LX310BT-Tocadiscos-con-conectividad-Bluetooth",
+    name: "Sony PS-LX310BT Tocadiscos con conectividad Bluetooth",
+    category: "all",
+    image: "https://m.media-amazon.com/images/I/51+Xja4sTxL._AC_SL1000_.jpg",
+    tags: ["Tocadiscos", "Bluetooth"],
+    search: "Sony PS-LX310BT Tocadiscos con conectividad Bluetooth",
+    storeUrl: "https://a.co/d/5F9Zp0l",
+    storeLabel: "Ver en Amazon",
+  },
+  {
+    id: "Oster-Freidora de Aire Digital-Recubrimiento-Oster-DiamondForce",
+    name: "Oster Freidora de Aire Digital Recubrimiento Oster DiamondForce",
+    category: "all",
+    image: "https://m.media-amazon.com/images/I/711RXjtIXwL._AC_SL1500_.jpg",
+    tags: ["Freidora de aire", "Digital"],
+    search: "Oster Freidora de Aire Digital Recubrimiento Oster DiamondForce",
+    storeUrl: "https://a.co/d/0Q50bs6",
+    storeLabel: "Ver en Amazon",
+  },
+  {
+    id: "MAGMALIFE-Maleta-de-Viaje-10-kg-Celestial-Carry-On",
+    name: "MAGMALIFE Maleta de Viaje 10 kg Celestial Carry-On",
+    category: "all",
+    image: "https://m.media-amazon.com/images/I/61nEZy1GXKL._AC_SX679_.jpg",
+    tags: ["Maleta", "Carry-On"],
+    search: "MAGMALIFE Maleta de Viaje 10 kg Celestial Carry-On",
+    storeUrl: "https://a.co/d/eRC5v2e",
+    storeLabel: "Ver en Amazon",
+    priority: true,
+  },
+  {
+    id: "Maleta-BAGIAU-de-Viaje-20-Carry-On-Rígida-Equipaje-de-Mano-Cabina-con-8-ruedas-y-candado-integrado",
+    name: 'Maleta BAGIAU de Viaje 20" Carry On Rígida, Equipaje de Mano Cabina con 8 ruedas y candado integrado',
+    category: "all",
+    image: "https://m.media-amazon.com/images/I/61phpfztkUL._AC_SX679_.jpg",
+    tags: ["Maleta", "Carry-On"],
+    search:
+      "Maleta BAGIAU de Viaje 20 Carry On Rígida Equipaje de Mano Cabina con 8 ruedas y candado integrado",
+    storeUrl: "https://a.co/d/0GGQ0eW",
+    storeLabel: "Ver en Amazon",
+    priority: true,
+  },
+  {
+    id: "Amazon-Basics-Equipaje-de-mano-rígido-de-53.3cm",
+    name: "Amazon Basics Equipaje de mano rígido de 53.3cm",
+    category: "all",
+    image: "https://m.media-amazon.com/images/I/91g9s0UqTBL._AC_SL1500_.jpg",
+    tags: ["Maleta", "Equipaje de mano"],
+    search: "Amazon Basics Equipaje de mano rígido de 53.3cm",
+    storeUrl: "https://a.co/d/6iSLtqC",
+    storeLabel: "Ver en Amazon",
+    priority: true,
+  },
 ];
 
 const CATEGORY_CONTAINER_IDS = {
@@ -428,7 +544,16 @@ const CATEGORY_CONTAINER_IDS = {
 function createGiftCard(gift) {
   const article = document.createElement("article");
   article.className =
-    "gift-card gift-card--soft flex flex-col h-full transform transition hover:-translate-y-1 hover:shadow-lg";
+    "gift-card gift-card--soft relative flex flex-col h-full transform transition hover:-translate-y-1 hover:shadow-lg";
+
+  // Priority badge
+  if (gift.priority) {
+    const badge = document.createElement("div");
+    badge.className =
+      "gift-card__priority absolute top-2 right-2 bg-yellow-400 text-black text-xs font-semibold px-2 py-1 rounded z-10";
+    badge.textContent = "Prioritario";
+    article.appendChild(badge);
+  }
 
   const media = document.createElement("div");
   media.className = "gift-card__media";

@@ -260,7 +260,7 @@ function createGiftCard(gift) {
 
   const googleBtn = document.createElement("button");
   googleBtn.type = "button";
-  googleBtn.className = "gift-card__button gift-card__button--ghost";
+  googleBtn.className = "gift-card__google_button gift-card__button--ghost";
   googleBtn.textContent = "Buscar en Google";
   googleBtn.addEventListener("click", () => {
     const query = gift.search || gift.name;

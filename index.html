@@ -97,9 +97,9 @@
         <div class="mt-6 space-y-6">
           <!-- Hero card fija -->
           <article class="gift-card gift-card--hero flex flex-col h-full transform transition hover:-translate-y-1 hover:shadow-xl">
-            <div class="gift-card__media gift-card__media--hero rounded-t-2xl overflow-hidden">
+            <div class="gift-card__media--hero rounded-t-2xl overflow-hidden">
               <img
-                src="https://images.unsplash.com/photo-1662638600507-0846616ec508?q=80&w=1200&auto=format&fit=crop"
+                src="https://images.unsplash.com/photo-1616763355548-1b606f439f86?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt="Estación de trabajo moderna"
                 loading="lazy"
               />
@@ -117,7 +117,6 @@
               </div>
             </div>
           </article>
-
           <!-- Contenedor dinámico -->
           <div
             class="cards-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
@@ -128,7 +127,7 @@
 
       <!-- Día a día -->
       <section id="daylife" class="category-block">
-        <div class="category-header">
+        <div class="category-headergrid grid-cols-1 gap-6 items-center">
           <p class="category-kicker">Vida diaria &amp; movilidad</p>
           <h2 class="mt-3 text-3xl md:text-4xl font-extrabold tracking-tight">Cosas que uso todos los días</h2>
           <p class="category-desc">
@@ -136,47 +135,94 @@
           </p>
         </div>
 
-        <div
-          class="cards-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6"
-          id="cards-daylife"
-        ></div>
+        <div class="mt-6 space-y-6">
+          <article class="gift-card gift-card--hero flex flex-col h-full transform transition hover:-translate-y-1 hover:shadow-xl">
+            <div class="gift-card__media--hero rounded-t-2xl overflow-hidden">
+              <img
+                src="https://images.unsplash.com/3/www.madebyvadim.com.jpg?q=80&w=1764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="male accessories"
+                loading="lazy"
+              />
+            </div>
+            <div class="gift-card__body p-6 md:p-7 flex flex-col flex-1">
+              <h3 class="gift-card__title">Accesorios y utilidades</h3>
+              <p class="text-slate-600 mt-2 flex-1">
+                Mochilas, portafolios y otros accesorios para el día a día que combinen estilo y
+                funcionalidad.
+              </p>
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="tag">Práctico</span>
+                <span class="tag">Minimalista</span>
+                <span class="tag">Funcional</span>
+                <span class="tag">Fácil de llevar</span>
+              </div>
+            </div>
+          </article>
+          <div
+          class="cards-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+          id="cards-daylife"></div>
+
+        </div>
+        
       </section>
 
       <!-- Accesorios bajo eléctrico -->
       <section id="music" class="category-block">
-        <div class="category-header">
+        <div class="category-header grid grid-cols-1 gap-6 items-center">
           <p class="category-kicker">Música</p>
           <h2 class="mt-3 text-3xl md:text-4xl font-extrabold tracking-tight">Accesorios para bajo eléctrico</h2>
           <p class="category-desc">
             Correas cómodas y resistentes que combinen con el estilo y aguanten ensayos largos.
           </p>
         </div>
-
-        <div
-          class="cards-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6"
-          id="cards-bass"
-        ></div>
+        <div class="mt-6 space-y-6">
+          <div
+          class="cards-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+          id="cards-bass"></div>
+        </div>
       </section>
 
-      <!-- Perfumes -->
+      <!-- Aseo personal -->
       <section id="perfumes" class="category-block">
-        <div class="category-header">
-          <p class="category-kicker">Fragancias</p>
+        <div class="category-header grid grid-cols-1 gap-6 items-center">
+          <p class="category-kicker">Cuidado y aseo personal</p>
           <h2 class="mt-3 text-3xl md:text-4xl font-extrabold tracking-tight">Perfumería</h2>
           <p class="category-desc">
             Aromas frescos y versátiles para el día a día, ideales para cualquier ocasión.
           </p>
         </div>
 
-        <div
+        <div class="mt-6 space-y-6">
+          <div class="gift-card gift-card--hero flex flex-col h-full transform transition hover:-translate-y-1 hover:shadow-xl">
+            <div class="gift-card__media--hero rounded-t-2xl overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1621814374283-57cc5d0d39c2?q=80&w=1931&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Perfumes sobre mesa de madera"
+                loading="lazy"
+              />
+            </div>
+            <div class="gift-card__body p-6 md:p-7 flex flex-col flex-1">
+              <h3 class="gift-card__title">Perfumes frescos y versátiles</h3>
+              <p class="text-slate-600 mt-2 flex-1">
+                Algunos de mis perfumes favoritos para las distintas epocas del año y ocasiones.  
+              </p>
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="tag">Aromas frescos</span>
+                <span class="tag">Versátil</span>
+                <span class="tag">Duradero</span>
+              </div>
+            </div>
+
+          </div>
+          <div
           class="cards-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6"
-          id="cards-perfumes"
-        ></div>
+          id="cards-perfumes"></div>
+        </div>
       </section>
 
       <!-- Entretenimiento -->
       <section id="fun" class="category-block">
-        <div class="category-header">
+        <div class="category-header grid grid-cols-1 gap-6 items-center">
           <p class="category-kicker">Entretenimiento &amp; coleccionables</p>
           <h2 class="mt-3 text-3xl md:text-4xl font-extrabold tracking-tight">Cosas frikis que siempre se agradecen</h2>
           <p class="category-desc">
@@ -192,7 +238,7 @@
 
       <!-- Dulces -->
       <section id="snacks" class="category-block">
-        <div class="category-header">
+        <div class="category-header grid grid-cols-1 gap-6 items-center">
           <p class="category-kicker">Extras comestibles</p>
           <h2 class="mt-3 text-3xl md:text-4xl font-extrabold tracking-tight">Golosinas &amp; Dulces</h2>
           <p class="category-desc">

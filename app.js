@@ -11,7 +11,7 @@ const gifts = [
     tags: ["6 enchufes", "USB-C PD"],
     search: "multicontacto escritorio 6 enchufes usb c",
     storeUrl: "https://www.amazon.com.mx/dp/B0BS72G3LY/",
-    storeLabel: "Ver en Amazon"
+    storeLabel: "Ver en Amazon",
   },
   {
     id: "multicontacto-clip-mesa",
@@ -21,7 +21,7 @@ const gifts = [
     tags: ["40W total", "4x USB-C"],
     search: "multicontacto escritorio clip mesa AnnTane 40W",
     storeUrl: "https://www.amazon.com.mx/dp/B0F625CQM2/",
-    storeLabel: "Ver en Amazon"
+    storeLabel: "Ver en Amazon",
   },
   {
     id: "mousepad-asus",
@@ -31,7 +31,17 @@ const gifts = [
     tags: ["Tamaño XL", "Base antideslizante"],
     search: "Asus ROG Sheath mousepad XL",
     storeUrl: "https://www.amazon.com.mx/dp/B01G5ATZAE/",
-    storeLabel: "Ver en Amazon"
+    storeLabel: "Ver en Amazon",
+  },
+  {
+    id: "mouspad-excovip-xxl-planetas",
+    name: "Mousepad Excovip XXL Planetas",
+    category: "setup",
+    image: "https://m.media-amazon.com/images/I/71EZuG4REfL._AC_SL1500_.jpg",
+    tags: ["Tamaño XXL", "Diseño planetas"],
+    search: "Excovip XXL mousepad planetas",
+    storeUrl: "https://a.co/d/3Vzlv5F",
+    storeLabel: "Ver en Amazon",
   },
   {
     id: "mousepad-corsair",
@@ -40,8 +50,9 @@ const gifts = [
     image: "https://m.media-amazon.com/images/I/21GzCLYWWeL._SS600_.jpg",
     tags: ["XL", "RGB"],
     search: "Corsair MM700 RGB extended mouse pad",
-    storeUrl: "https://www.corsair.com/lm/es/p/mousepads/ch-9417080-ww/mm700-rgb-extended-3xl-cloth-gaming-mouse-pad-desk-mat-ch-9417080-ww",
-    storeLabel: "Ver en Corsair"
+    storeUrl:
+      "https://www.corsair.com/lm/es/p/mousepads/ch-9417080-ww/mm700-rgb-extended-3xl-cloth-gaming-mouse-pad-desk-mat-ch-9417080-ww",
+    storeLabel: "Ver en Corsair",
   },
   {
     id: "soporte-monitor-linkon",
@@ -50,8 +61,9 @@ const gifts = [
     image: "https://ss637.liverpool.com.mx/xl/1175098409.jpg",
     tags: ["Ajustable", "Liverpool"],
     search: "Soporte para monitor de escritorio Linkon",
-    storeUrl: "https://www.liverpool.com.mx/tienda/pdp/soporte-para-monitor-de-escritorio-linkon/99983759943",
-    storeLabel: "Ver en Liverpool"
+    storeUrl:
+      "https://www.liverpool.com.mx/tienda/pdp/soporte-para-monitor-de-escritorio-linkon/99983759943",
+    storeLabel: "Ver en Liverpool",
   },
   {
     id: "soporte-movil-tv",
@@ -61,7 +73,7 @@ const gifts = [
     tags: ["Hasta 65″", "Altura ajustable"],
     search: "soporte móvil para tv 65 pulgadas altura ajustable",
     storeUrl: "https://www.amazon.com.mx/dp/B0DHZ6H7JL/",
-    storeLabel: "Ver en Amazon"
+    storeLabel: "Ver en Amazon",
   },
   {
     id: "xiaomi-monitor-lightbar",
@@ -70,8 +82,9 @@ const gifts = [
     image: "https://m.media-amazon.com/images/I/414OKh3xZlL.jpg",
     tags: ["Luz asimétrica", "Ahorra espacio"],
     search: "Xiaomi Mi Computer Monitor Light Bar",
-    storeUrl: "https://www.mi.com/mx/product/mi-computer-monitor-light-bar/buy/",
-    storeLabel: "Ver en Xiaomi"
+    storeUrl:
+      "https://www.mi.com/mx/product/mi-computer-monitor-light-bar/buy/",
+    storeLabel: "Ver en Xiaomi",
   },
   {
     id: "echo-dot",
@@ -81,7 +94,7 @@ const gifts = [
     tags: ["Alexa", "Asistente de voz"],
     search: "Amazon Echo Dot 5a generación",
     storeUrl: "https://www.amazon.com.mx/dp/B09B8V1LZ3/",
-    storeLabel: "Ver en Amazon"
+    storeLabel: "Ver en Amazon",
   },
 
   // === DÍA A DÍA / MOVILIDAD ===================================
@@ -93,18 +106,17 @@ const gifts = [
     tags: ["Para laptop", "Uso diario"],
     search: "Mochila The North Face Borealis laptop",
     storeUrl: "https://www.amazon.com.mx/dp/B0CN9S5SWD/",
-    storeLabel: "Ver en Amazon"
+    storeLabel: "Ver en Amazon",
   },
   {
     id: "portafolios-lubardy",
     name: "Portafolios Lubardy para laptop",
     category: "daylife",
-    image: null,
-    emoji: "💼",
+    image: "https://m.media-amazon.com/images/I/71-ztHgv9YL._AC_SL1500_.jpg",
     tags: ["16″", "Imitación cuero"],
     search: "Portafolios Lubardy 16 pulgadas laptop",
     storeUrl: "https://www.amazon.com.mx/dp/B0D83VR6GV/",
-    storeLabel: "Ver en Amazon"
+    storeLabel: "Ver en Amazon",
   },
 
   // === BAJO ELÉCTRICO ==========================================
@@ -116,7 +128,7 @@ const gifts = [
     tags: ["Piel", "Clásica"],
     search: "Fender leather strap brown bass",
     storeUrl: "https://www.amazon.com.mx/dp/B000EELFI8/",
-    storeLabel: "Ver en Amazon"
+    storeLabel: "Ver en Amazon",
   },
   {
     id: "fender-correa-pana",
@@ -126,7 +138,7 @@ const gifts = [
     tags: ["Vintage", "Suave"],
     search: "Fender corduroy strap",
     storeUrl: "https://www.amazon.com.mx/dp/B0B9QN1H4G/",
-    storeLabel: "Ver en Amazon"
+    storeLabel: "Ver en Amazon",
   },
   {
     id: "fender-animal-print",
@@ -136,7 +148,7 @@ const gifts = [
     tags: ["Cebra", "Statement"],
     search: "Fender animal print strap zebra",
     storeUrl: "https://www.amazon.com.mx/dp/B08CSXZDVP/",
-    storeLabel: "Ver en Amazon"
+    storeLabel: "Ver en Amazon",
   },
   {
     id: "levys-leather-wide",
@@ -146,7 +158,7 @@ const gifts = [
     tags: ["7.6 cm", "Extra cómoda"],
     search: "Levy's leather 3 inch bass strap",
     storeUrl: "https://www.amazon.com.mx/dp/B0845Q9BTT/",
-    storeLabel: "Ver en Amazon"
+    storeLabel: "Ver en Amazon",
   },
 
   // === PERFUMES ================================================
@@ -154,12 +166,61 @@ const gifts = [
     id: "polo-sport",
     name: "Ralph Lauren Polo Sport EDT",
     category: "perfumes",
-    image: null,
-    emoji: "🧴",
+    image: "https://ss701.liverpool.com.mx/xl/6783422.jpg",
     tags: ["Fresco", "Clásico"],
     search: "Ralph Lauren Polo Sport EDT 125ml",
     storeUrl: "https://www.amazon.com.mx/dp/B00EXW1PRS/",
-    storeLabel: "Ver en Amazon"
+    storeLabel: "Ver en Amazon",
+  },
+  {
+    id: "Armaf_odyssey_limoni",
+    name: "Armaf Odyssey Limoni EDP",
+    category: "perfumes",
+    image: "https://m.media-amazon.com/images/I/61hLQ5ujH3L._AC_SL1500_.jpg",
+    tags: ["Cítrico", "Juvenil", "Fresco"],
+    search: "Armaf Odyssey Limoni EDP 100ml",
+    storeUrl: "https://a.co/d/76SFjsK",
+    storeLabel: "Ver en Amazon",
+  },
+  {
+    id: "Armaf_Odyssey_Dubai_Chocolat",
+    name: "Armaf Odyssey Dubai Chocolat EDP",
+    category: "perfumes",
+    image: "https://m.media-amazon.com/images/I/7143opljnoL._AC_SL1500_.jpg",
+    tags: ["Dulce", "Cálido", "Gourmand"],
+    search: "Armaf Odyssey Dubai Chocolat EDP 100ml",
+    storeUrl: "https://a.co/d/2WleseG",
+    storeLabel: "Ver en Amazon",
+  },
+  {
+    id: "Lacoste_L.12.12_Blanco",
+    name: "Lacoste L.12.12 Blanc EDT",
+    category: "perfumes",
+    image: "https://m.media-amazon.com/images/I/71Pk21AjqWL._AC_SL1500_.jpg",
+    tags: ["Fresco", "Versátil", "Cítrico"],
+    search: "Lacoste L.12.12 Blanc EDT 100ml",
+    storeUrl: "https://a.co/d/37zJw0Q",
+    storeLabel: "Ver en Amazon",
+  },
+  {
+    id: "Moschino_Toy_Boy_Edp",
+    name: "Moschino Toy Boy EDP",
+    category: "perfumes",
+    image: "https://m.media-amazon.com/images/I/510i5dxTWoL._AC_SL1000_.jpg",
+    tags: ["Amaderado", "Especiado", "Moderno"],
+    search: "Moschino Toy Boy EDP 100ml",
+    storeUrl: "https://a.co/d/ePQstfs",
+    storeLabel: "Ver en Amazon",
+  },
+  {
+    id: "Hugo_by_Hugo_Boss",
+    name: "Hugo by Hugo Boss EDT",
+    category: "perfumes",
+    image: "https://m.media-amazon.com/images/I/71n7lCqrv-L._AC_SL1500_.jpg",
+    tags: ["Fresco", "Verde"],
+    search: "Hugo by Hugo Boss EDT 125ml",
+    storeUrl: "https://a.co/d/5GWKtRw",
+    storeLabel: "Ver en Amazon",
   },
 
   // === ENTRETENIMIENTO =========================================
@@ -167,30 +228,68 @@ const gifts = [
     id: "lego-jazz-quartet",
     name: "LEGO Ideas Jazz Quartet 21334",
     category: "fun",
-    image: null,
-    emoji: "🎷",
+    image:
+      "https://www.lego.com/cdn/cs/set/assets/blt626a07dcab0e99bd/21334_alt1.png?format=webply&fit=bounds&quality=60&width=800&height=800&dpr=2",
     tags: ["Set de construcción", "Display"],
     search: "LEGO Ideas Jazz Quartet 21334",
     storeUrl: "https://www.lego.com/es-mx/product/jazz-quartet-21334",
-    storeLabel: "Ver en LEGO"
+    storeLabel: "Ver en LEGO",
+  },
+  {
+    id: "bbng-vinyl-lll",
+    name: "Vinilo BadBadNotGood III",
+    category: "fun",
+    image: "https://m.media-amazon.com/images/I/618sBBU7vTL._AC_SL1500_.jpg",
+    tags: ["Vinilo", "Jazz fusion"],
+    search: "BadBadNotGood III vinyl",
+    storeUrl: "https://a.co/d/gkhZTeb",
+    storeLabel: "Ver en Amazon",
+  },
+  {
+    id: "MF-doom-mm-food-vinyl",
+    name: "Vinilo MF DOOM - Mm..Food",
+    category: "fun",
+    image: "https://m.media-amazon.com/images/I/81yLIHzNaDL._AC_SL1500_.jpg",
+    tags: ["Vinilo", "Hip hop"],
+    search: "MF DOOM Mm..Food vinyl",
+    storeUrl: "https://a.co/d/cI6VYac",
+    storeLabel: "Ver en Amazon",
+  },
+  {
+    id: "bbng-vinyl-iv",
+    name: "Vinilo BadBadNotGood IV",
+    category: "fun",
+    image: "https://m.media-amazon.com/images/I/719qN5IueZL._AC_SL1500_.jpg",
+    tags: ["Vinilo", "Jazz fusion"],
+    search: "BadBadNotGood IV vinyl",
+    storeUrl: "https://a.co/d/8Z9Jfz5",
+    storeLabel: "Ver en Amazon",
   },
 
   // === SNACKS (ejemplo genérico) ===============================
   {
-    id: "snacks-chocolate-cafe",
-    name: "Chocolates & café",
+    id: "Surtido_Turrones_Ean_200_Grs",
+    name: "Surtido Turrones Ean 200 Grs",
     category: "snacks",
-    image: null,
-    emoji: "🍫",
-    tags: ["Tabletas", "Café de especialidad"],
-    search: "caja regalo chocolates café de especialidad",
-    storeUrl: null
+    image: "https://m.media-amazon.com/images/I/71sLyKCcLcL._AC_SL1500_.jpg",
+    tags: ["Turrones", "Navideños"],
+    search: "Surtido Turrones Ean 200 Grs",
+    storeUrl: "https://a.co/d/acViYbG",
+    storeLabel: "Ver en Amazon",
   },
 
-  // === LISTA COMPLETA (GENÉRICA, TODOS LOS AMAZON) =============
-  // Mantengo la numeración Producto Amazon #N para referencia rápida
+  // === Otras categorias ===
 
-  { id: "amazon-1",  name: "Producto Amazon #1",  category: "all", image: null, emoji: "🛒", tags: ["Wishlist"], search: "Producto Amazon wishlist 1",  storeUrl: "https://www.amazon.com.mx/dp/B0BS72G3LY/",  storeLabel: "Ver producto" }
+  {
+    id: "Pococo_Proyector_de_estrellas",
+    name: "Pococo Proyector de estrellas",
+    category: "all",
+    image: "https://m.media-amazon.com/images/I/71qT0Tg0xDL._AC_SL1500_.jpg",
+    tags: ["Proyector", "Estrellas"],
+    search: "Pococo Proyector de estrellas",
+    storeUrl: "https://a.co/d/8Tbm0ZE",
+    storeLabel: "Ver en Amazon",
+  },
 ];
 
 const CATEGORY_CONTAINER_IDS = {

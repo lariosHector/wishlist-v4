@@ -491,18 +491,43 @@ html{
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  font-size: 0.78rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.7); /* slate-400-ish */
+  background-color: rgba(248, 250, 252, 0.9);  /* slate-50-ish */
+  font-size: 0.8rem;
   color: #0f172a; /* slate-900 */
   cursor: pointer;
+  transition:
+    background-color 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    transform 0.12s ease;
 }
 
-.filter-toggle input[type="checkbox"] {
-  width: 14px;
-  height: 14px;
-  border-radius: 999px;
-  accent-color: #0ea5e9; /* color del check en navegadores modernos */
+.filter-toggle input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
 }
-
+.filter-toggle span {
+  pointer-events: none; /* para que todo el label sea clickeable */
+}
+.filter-toggle:has(input:checked) {
+  background: linear-gradient(
+    135deg,
+    rgba(59, 130, 246, 0.1),
+    rgba(56, 189, 248, 0.16)
+  );
+  border-color: rgba(59, 130, 246, 0.9); /* azul */
+  box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.25);
+  color: #0f172a;
+  transform: translateY(-1px);
+}
+.filter-toggle:has(input:focus-visible) {
+  outline: 2px solid rgba(56, 189, 248, 0.9); /* sky-400 */
+  outline-offset: 2px;
+}
 /* Fila de chips de etiquetas */
 .filter-tags-row {
   display: flex;

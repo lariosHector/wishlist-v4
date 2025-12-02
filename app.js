@@ -356,12 +356,19 @@ function setupHideOnScroll() {
 
   window.addEventListener("scroll", () => {
     const current = window.scrollY;
+    const maxScroll =
+      document.documentElement.scrollHeight - window.innerHeight;
 
-    // Scroll hacia abajo (y no justo al inicio de la página)
-    if (current > lastScrollY && current > 80) {
+    const nearBottom = current + 80 >= maxScroll;
+    const scrollingDown = current > lastScrollY;
+
+    if (nearBottom) {
       topShell.classList.add("top-shell--hidden");
-    } else {
-      // Scroll hacia arriba o cerca del top
+    }
+    else if (scrollingDown && current > 80) {
+      topShell.classList.add("top-shell--hidden");
+    }
+    else {
       topShell.classList.remove("top-shell--hidden");
     }
 

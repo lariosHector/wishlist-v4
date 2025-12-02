@@ -72,8 +72,28 @@ function createGiftCard(gift) {
     storeLink.href = gift.storeUrl;
     storeLink.target = "_blank";
     storeLink.rel = "noopener noreferrer";
-    storeLink.className = "gift-card__button";
+
+    const label = (gift.storeLabel || "Ver producto").toLowerCase();
+
+    let storeClass = "gift-card__button"; // default
+
+    if (label.includes("amazon")) {
+      storeClass = "gift-card__amazon_button";
+    } else if (label.includes("ikea")) {
+      storeClass = "gift-card__ikea_button";
+    } else if (label.includes("liverpool") || label.includes("meli")) {
+      storeClass = "gift-card__liverpool_button";
+    } else if (label.includes("xiaomi")) {
+      storeClass = "gift-card__xiaomi_button";
+    } else if (label.includes("corsair")) {
+      storeClass = "gift-card__corsair_button";
+    } else if (label.includes("lego")) {  
+      storeClass = "gift-card__lego_button";
+    }
+
+    storeLink.className = storeClass;
     storeLink.textContent = gift.storeLabel || "Ver producto";
+
     buttons.appendChild(storeLink);
   }
 

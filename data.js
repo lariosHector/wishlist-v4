@@ -1,6 +1,32 @@
 window.gifts = [
   // === SETUP / ESCRITORIO ======================================
   {
+    id: "UTESPELARE-STYRSPEL_Escritorio_y_silla_p/gamer_negro/gris",
+    name: "Escritorio y silla gamer negro/gris UTESPELARE",
+    category: "setup",
+    image:
+      "https://www.ikea.com/mx/es/images/products/utespelare-styrspel-escritorio-y-silla-p-gamer-negro-gris__1123700_pe874860_s5.jpg?f=xl",
+    tags: ["Muebles"],
+    search: "Escritorio y silla gamer negro/gris UTESPELARE",
+    storeUrl:
+      "https://www.ikea.com/mx/es/p/utespelare-styrspel-escritorio-y-silla-p-gamer-negro-gris-s49491167",
+    storeLabel: "Ver en IKEA",
+    priority: true,
+  },
+  {
+    id: "SAMBORD-Lámpara-de-escritorio-negro/blanco",
+    name: "Lámpara de escritorio negro/blanco SAMBORD",
+    category: "setup",
+    image:
+      "https://www.ikea.com/mx/es/images/products/sambord-lampara-de-escritorio-negro-blanco__1375676_pe960327_s5.jpg?f=xl",
+    tags: ["Tecnología", "Accesorios"],
+    search: "Lámpara de escritorio SAMBORD",
+    storeUrl:
+      "https://www.ikea.com/mx/es/p/sambord-lampara-de-escritorio-negro-blanco-10586958",
+    storeLabel: "Ver en IKEA",
+    priority: true,
+  },
+  {
     id: "multicontacto-escritorio",
     name: "Multicontacto de escritorio",
     category: "setup",
@@ -62,6 +88,7 @@ window.gifts = [
     storeUrl:
       "https://www.liverpool.com.mx/tienda/pdp/soporte-para-monitor-de-escritorio-linkon/99983759943",
     storeLabel: "Ver en Liverpool",
+    priority: true,
   },
   {
     id: "soporte-movil-tv",

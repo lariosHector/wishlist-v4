@@ -114,7 +114,6 @@ html{
   border-radius: 999px;
   font-size: 0.8rem;
   font-weight: 500;
-  border: 1px solid transparent;
   cursor: pointer;
   white-space: nowrap;
 }
@@ -246,7 +245,12 @@ html{
   color: #0f172a;
 }
 
-.gift-card__button {
+.gift-card__amazon_button,
+.gift-card__ikea_button,
+.gift-card__liverpool_button,
+.gift-card__corsair_button,
+.gift-card__xiaomi_button,
+.gift-card__lego_button {
   margin-top: 0.1rem;
   align-self: flex-start;
   display: inline-flex;
@@ -255,19 +259,55 @@ html{
   gap: 0.35rem;
   padding: 0.45rem 0.9rem;
   border-radius: 999px;
-  font-size: 0.82rem;
+  font-size: 0.82rem; 
   font-weight: 600;
   background: linear-gradient(135deg,
-  #0F171E 0%,    /* Prime Video dark */
-  #1B2730 40%,   /* Azul grisáceo suave */
-  #233444 75%,   /* Amazon blue grisáceo */
-  #FF9900 100%);
+    #FF9900 33%,
+    #016765 66%,
+    #146EB4 100%);
   color: #f5f3ff;
   border: none;
   text-decoration: none;
   box-shadow: var(--shadow-soft);
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+.gift-card__lego_button {
+    background: linear-gradient(135deg,
+    #ffea07 0%,    /* LEGO yellow */
+    #ff1900 50%,   /* Amarillo grisáceo suave */   /* LEGO red grisáceo */
+    #ffea07 100%); 
+    color: #ffffff;
+}
+.gift-card__ikea_button {
+    background: linear-gradient(
+    135deg,
+    #fff6b5 0%,   /* Amarillo muy claro */
+    #ffe871 30%,  /* Amarillo pastel */
+    #b5d8ff 65%,  /* Azul claro suave */
+    #8ab9ff 100%  /* Azul pastel más saturado */
+  );
+  color: #003B73;
+}
+.gift-card__liverpool_button {  
+    background: linear-gradient(135deg,
+    #ff9faf 0%,    /* Liverpool red */
+    #b25a63 50%,   /* Rojo grisáceo */
+    #fc107a 100%);
+} 
+.gift-card__corsair_button {
+    background: linear-gradient(135deg,
+    #c12525 0%,    /* Corsair red */
+    #910b0b 40%,   /* Rojo grisáceo suave */
+    #490303 75%,   /* Rojo grisáceo */
+    #220101 100%);
+}
+.gift-card__xiaomi_button{
+  background: linear-gradient(135deg,
+  #FF6900 0%,    /* Xiaomi orange */
+  #CC5500 40%,   /* Naranja grisáceo suave */
+  #993D00 75%,   /* Naranja grisáceo */
+  #662800 100%);
 }
 .gift-card__google_button {
   margin-top: 0.1rem;
@@ -291,12 +331,18 @@ html{
   transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
 }
 
-.gift-card__button:hover,
-.gift-card__google_button:hover {
-  transform: translateY(-1px) scale(1.01);
+.gift-card__amazon_button:hover,
+.gift-card__google_button:hover,
+.gift-card__ikea_button:hover,
+.gift-card__liverpool_button:hover,
+.gift-card__corsair_button:hover,
+.gift-card__xiaomi_button:hover,
+.gift-card__lego_button:hover {
+  transform: translateY(-2px) scale(1.01);
   box-shadow:
     0 16px 32px rgba(15, 23, 42, 0.35),
     0 0 0 1px rgba(15, 23, 42, 0.9);
+  filter: brightness(1.05);
 }
 .gift-card__hint {
   margin: 0.15rem 0 0;

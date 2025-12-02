@@ -1,555 +1,7 @@
-// app.js
-// Datos de regalos + render dinámico + botón "Buscar en Google"
-
-const gifts = [
-  // === SETUP / ESCRITORIO ======================================
-  {
-    id: "multicontacto-escritorio",
-    name: "Multicontacto de escritorio",
-    category: "setup",
-    image: "https://m.media-amazon.com/images/I/41-h7XXl5SL._SS600_.jpg",
-    tags: ["6 enchufes", "USB-C PD"],
-    search: "multicontacto escritorio 6 enchufes usb c",
-    storeUrl: "https://www.amazon.com.mx/dp/B0BS72G3LY/",
-    storeLabel: "Ver en Amazon",
-  },
-  {
-    id: "multicontacto-clip-mesa",
-    name: "Multicontacto AnnTane (clip de mesa)",
-    category: "setup",
-    image: "https://m.media-amazon.com/images/I/318CEcxN97L._SS600_.jpg",
-    tags: ["40W total", "4x USB-C"],
-    search: "multicontacto escritorio clip mesa AnnTane 40W",
-    storeUrl: "https://www.amazon.com.mx/dp/B0F625CQM2/",
-    storeLabel: "Ver en Amazon",
-    priority: true,
-  },
-  {
-    id: "mousepad-asus",
-    name: "Mousepad Asus ROG Sheath XL",
-    category: "setup",
-    image: "https://m.media-amazon.com/images/I/414Y+Q2dTfL._SS600_.jpg",
-    tags: ["Tamaño XL", "Base antideslizante"],
-    search: "Asus ROG Sheath mousepad XL",
-    storeUrl: "https://www.amazon.com.mx/dp/B01G5ATZAE/",
-    storeLabel: "Ver en Amazon",
-  },
-  {
-    id: "mouspad-excovip-xxl-planetas",
-    name: "Mousepad Excovip XXL Planetas",
-    category: "setup",
-    image: "https://m.media-amazon.com/images/I/71EZuG4REfL._AC_SL1500_.jpg",
-    tags: ["Tamaño XXL", "Diseño planetas"],
-    search: "Excovip XXL mousepad planetas",
-    storeUrl: "https://a.co/d/3Vzlv5F",
-    storeLabel: "Ver en Amazon",
-  },
-  {
-    id: "mousepad-corsair",
-    name: "Mousepad Corsair MM700 RGB",
-    category: "setup",
-    image: "https://m.media-amazon.com/images/I/21GzCLYWWeL._SS600_.jpg",
-    tags: ["XL", "RGB"],
-    search: "Corsair MM700 RGB extended mouse pad",
-    storeUrl:
-      "https://www.corsair.com/lm/es/p/mousepads/ch-9417080-ww/mm700-rgb-extended-3xl-cloth-gaming-mouse-pad-desk-mat-ch-9417080-ww",
-    storeLabel: "Ver en Corsair",
-  },
-  {
-    id: "soporte-monitor-linkon",
-    name: "Soporte para monitor Linkon",
-    category: "setup",
-    image: "https://ss637.liverpool.com.mx/xl/1175098409.jpg",
-    tags: ["Ajustable", "Liverpool"],
-    search: "Soporte para monitor de escritorio Linkon",
-    storeUrl:
-      "https://www.liverpool.com.mx/tienda/pdp/soporte-para-monitor-de-escritorio-linkon/99983759943",
-    storeLabel: "Ver en Liverpool",
-  },
-  {
-    id: "soporte-movil-tv",
-    name: "Soporte móvil para monitor / TV",
-    category: "setup",
-    image: "https://m.media-amazon.com/images/I/41r4JFl5QoL._SS600_.jpg",
-    tags: ["Hasta 65″", "Altura ajustable"],
-    search: "soporte móvil para tv 65 pulgadas altura ajustable",
-    storeUrl: "https://www.amazon.com.mx/dp/B0DHZ6H7JL/",
-    storeLabel: "Ver en Amazon",
-  },
-  {
-    id: "xiaomi-monitor-lightbar",
-    name: "Xiaomi Mi Computer Monitor Light Bar",
-    category: "setup",
-    image: "https://m.media-amazon.com/images/I/414OKh3xZlL.jpg",
-    tags: ["Luz asimétrica", "Ahorra espacio"],
-    search: "Xiaomi Mi Computer Monitor Light Bar",
-    storeUrl:
-      "https://www.mi.com/mx/product/mi-computer-monitor-light-bar/buy/",
-    storeLabel: "Ver en Xiaomi",
-    priority: true,
-  },
-  {
-    id: "echo-dot",
-    name: "Amazon Echo Dot (5ª gen)",
-    category: "setup",
-    image: "https://m.media-amazon.com/images/I/319ZaoJcE6L._AC_.jpg",
-    tags: ["Alexa", "Asistente de voz"],
-    search: "Amazon Echo Dot 5a generación",
-    storeUrl: "https://www.amazon.com.mx/dp/B09B8V1LZ3/",
-    storeLabel: "Ver en Amazon",
-  },
-  {
-    id: "Luces-LED-TV-Retroiluminación-3-Lite-con-Fish-Eye-Función",
-    name: "Luces LED TV Retroiluminación 3 Lite con Fish Eye Función",
-    category: "setup",
-    image: "https://m.media-amazon.com/images/I/71j1PNlJTxL._AC_SL1500_.jpg",
-    tags: ["Ambiente", "Colores"],
-    search: "Luces LED TV Retroiluminación 3 Lite con Fish Eye Función",
-    storeUrl: "https://a.co/d/61ySk0G",
-    storeLabel: "Ver en Amazon",
-  },
-
-  // === DÍA A DÍA / MOVILIDAD ===================================
-  {
-    id: "mochila-borealis",
-    name: "Mochila The North Face Borealis",
-    category: "daylife",
-    image: "https://m.media-amazon.com/images/I/41VxXMEmszL._SS600_.jpg",
-    tags: ["Para laptop", "Uso diario"],
-    search: "Mochila The North Face Borealis laptop",
-    storeUrl: "https://www.amazon.com.mx/dp/B0CN9S5SWD/",
-    storeLabel: "Ver en Amazon",
-  },
-  {
-    id: "portafolios-lubardy",
-    name: "Portafolios Lubardy para laptop",
-    category: "daylife",
-    image: "https://m.media-amazon.com/images/I/71-ztHgv9YL._AC_SL1500_.jpg",
-    tags: ["16″", "Imitación cuero"],
-    search: "Portafolios Lubardy 16 pulgadas laptop",
-    storeUrl: "https://www.amazon.com.mx/dp/B0D83VR6GV/",
-    storeLabel: "Ver en Amazon",
-  },
-  {
-    id: "Portafolios-para-Hombre-15.6-Pulgadas-Piel-Maletin-Laptop-Bolsa-de-Mensajero-Impermeable-Vintage-Cuero",
-    name: "Portafolios para Hombre 15.6 Pulgadas Piel Maletín Laptop Bolsa de Mensajero Impermeable Vintage Cuero",
-    category: "daylife",
-    image: "https://m.media-amazon.com/images/I/71-AED-AWSL._AC_SL1100_.jpg",
-    tags: ["15.6″", "Cuero vintage"],
-    search:
-      "Portafolios para Hombre 15.6 Pulgadas Piel Maletín Laptop Bolsa de Mensajero Impermeable Vintage Cuero",
-    storeUrl: "https://a.co/d/hEj5viM",
-    storeLabel: "Ver en Amazon",
-  },
-  {
-    id: "Stanley-Botella-Clásica-al-Vacío",
-    name: "Stanley Botella Clásica al Vacío",
-    category: "daylife",
-    image: "https://m.media-amazon.com/images/I/61hxLmqn7GL._AC_SL1500_.jpg",
-    tags: ["A prueba de fugas", "Acero inoxidable"],
-    search: "Stanley Botella Clásica al Vacío 532ml",
-    storeUrl: "https://a.co/d/1DK1w2z",
-    storeLabel: "Ver en Amazon",
-  },
-  {
-    id: "Funda-de-FineWoven-con-MagSafe-para-iPhone-15",
-    name: "Funda de FineWoven con MagSafe para iPhone 15",
-    category: "daylife",
-    image: "https://m.media-amazon.com/images/I/51UwFoiodtL._AC_SL1000_.jpg",
-    tags: ["MagSafe", "Ecológica"],
-    search: "Funda FineWoven MagSafe iPhone 15",
-    storeUrl: "https://a.co/d/0Y6APRB",
-    storeLabel: "Ver en Amazon",
-  },
-  {
-    id: "Tommy-Hilfiger-Original-Stretch-Camisa-Hombre",
-    name: "Tommy Hilfiger Original Stretch Camisa Hombre",
-    category: "daylife",
-    image: "https://m.media-amazon.com/images/I/61H0kh5cJGL._AC_SY879_.jpg",
-    tags: ["Casual", "Stretch"],
-    search: "Tommy Hilfiger Original Stretch Camisa Hombre",
-    storeUrl: "https://a.co/d/8ZOywoQ",
-    storeLabel: "Ver en Amazon",
-  },
-  {
-    id: "Stanley-AeroLight-Botella-de-tránsito-de-20-onzas",
-    name: "Stanley AeroLight - Botella de tránsito de 20 onzas",
-    category: "daylife",
-    image: "https://m.media-amazon.com/images/I/71tR8LNu4mL._AC_SL1500_.jpg",
-    tags: ["Ligera", "A prueba de fugas"],
-    search: "Stanley AeroLight Botella de tránsito de 20 onzas",
-    storeUrl: "https://a.co/d/j2vpnQK",
-    storeLabel: "Ver en Amazon",
-  },
-  // === BAJO ELÉCTRICO ==========================================
-  {
-    id: "fender-correa-piel",
-    name: "Correa de piel Fender",
-    category: "bass",
-    image: "https://m.media-amazon.com/images/I/41IHjUTR-EL._SS600_.jpg",
-    tags: ["Piel", "Clásica"],
-    search: "Fender leather strap brown bass",
-    storeUrl: "https://www.amazon.com.mx/dp/B000EELFI8/",
-    storeLabel: "Ver en Amazon",
-  },
-  {
-    id: "fender-correa-pana",
-    name: "Correa Fender de pana",
-    category: "bass",
-    image: "https://m.media-amazon.com/images/I/41wZ5YnU9bL._SS600_.jpg",
-    tags: ["Vintage", "Suave"],
-    search: "Fender corduroy strap",
-    storeUrl: "https://www.amazon.com.mx/dp/B0B9QN1H4G/",
-    storeLabel: "Ver en Amazon",
-  },
-  {
-    id: "fender-animal-print",
-    name: "Correa Fender Animal Print",
-    category: "bass",
-    image: "https://m.media-amazon.com/images/I/41+GI4pTT4L._SS600_.jpg",
-    tags: ["Cebra", "Statement"],
-    search: "Fender animal print strap zebra",
-    storeUrl: "https://www.amazon.com.mx/dp/B08CSXZDVP/",
-    storeLabel: "Ver en Amazon",
-  },
-  {
-    id: "levys-leather-wide",
-    name: "Correa Levy's de piel ancha",
-    category: "bass",
-    image: "https://m.media-amazon.com/images/I/31gO1Lu+UCL._SS600_.jpg",
-    tags: ["7.6 cm", "Extra cómoda"],
-    search: "Levy's leather 3 inch bass strap",
-    storeUrl: "https://www.amazon.com.mx/dp/B0845Q9BTT/",
-    storeLabel: "Ver en Amazon",
-  },
-
-  // === PERFUMES ================================================
-  {
-    id: "polo-sport",
-    name: "Ralph Lauren Polo Sport EDT",
-    category: "perfumes",
-    image: "https://ss701.liverpool.com.mx/xl/6783422.jpg",
-    tags: ["Fresco", "Clásico"],
-    search: "Ralph Lauren Polo Sport EDT 125ml",
-    storeUrl: "https://www.amazon.com.mx/dp/B00EXW1PRS/",
-    storeLabel: "Ver en Amazon",
-  },
-  {
-    id: "Armaf_odyssey_limoni",
-    name: "Armaf Odyssey Limoni EDP",
-    category: "perfumes",
-    image: "https://m.media-amazon.com/images/I/61hLQ5ujH3L._AC_SL1500_.jpg",
-    tags: ["Cítrico", "Juvenil", "Fresco"],
-    search: "Armaf Odyssey Limoni EDP 100ml",
-    storeUrl: "https://a.co/d/76SFjsK",
-    storeLabel: "Ver en Amazon",
-  },
-  {
-    id: "Armaf_Odyssey_Dubai_Chocolat",
-    name: "Armaf Odyssey Dubai Chocolat EDP",
-    category: "perfumes",
-    image: "https://m.media-amazon.com/images/I/7143opljnoL._AC_SL1500_.jpg",
-    tags: ["Dulce", "Cálido", "Gourmand"],
-    search: "Armaf Odyssey Dubai Chocolat EDP 100ml",
-    storeUrl: "https://a.co/d/2WleseG",
-    storeLabel: "Ver en Amazon",
-  },
-  {
-    id: "Lacoste_L.12.12_Blanco",
-    name: "Lacoste L.12.12 Blanc EDT",
-    category: "perfumes",
-    image: "https://m.media-amazon.com/images/I/71Pk21AjqWL._AC_SL1500_.jpg",
-    tags: ["Fresco", "Versátil", "Cítrico"],
-    search: "Lacoste L.12.12 Blanc EDT 100ml",
-    storeUrl: "https://a.co/d/37zJw0Q",
-    storeLabel: "Ver en Amazon",
-  },
-  {
-    id: "Moschino_Toy_Boy_Edp",
-    name: "Moschino Toy Boy EDP",
-    category: "perfumes",
-    image: "https://m.media-amazon.com/images/I/510i5dxTWoL._AC_SL1000_.jpg",
-    tags: ["Amaderado", "Especiado", "Moderno"],
-    search: "Moschino Toy Boy EDP 100ml",
-    storeUrl: "https://a.co/d/ePQstfs",
-    storeLabel: "Ver en Amazon",
-  },
-  {
-    id: "Hugo_by_Hugo_Boss",
-    name: "Hugo by Hugo Boss EDT",
-    category: "perfumes",
-    image: "https://m.media-amazon.com/images/I/71n7lCqrv-L._AC_SL1500_.jpg",
-    tags: ["Fresco", "Verde"],
-    search: "Hugo by Hugo Boss EDT 125ml",
-    storeUrl: "https://a.co/d/5GWKtRw",
-    storeLabel: "Ver en Amazon",
-  },
-
-  // === ENTRETENIMIENTO =========================================
-  {
-    id: "lego-jazz-quartet",
-    name: "LEGO Ideas Jazz Quartet 21334",
-    category: "fun",
-    image:
-      "https://www.lego.com/cdn/cs/set/assets/blt626a07dcab0e99bd/21334_alt1.png?format=webply&fit=bounds&quality=60&width=800&height=800&dpr=2",
-    tags: ["Set de construcción", "Display"],
-    search: "LEGO Ideas Jazz Quartet 21334",
-    storeUrl: "https://www.lego.com/es-mx/product/jazz-quartet-21334",
-    storeLabel: "Ver en LEGO",
-  },
-  {
-    id: "bbng-vinyl-lll",
-    name: "Vinilo BadBadNotGood III",
-    category: "fun",
-    image: "https://m.media-amazon.com/images/I/618sBBU7vTL._AC_SL1500_.jpg",
-    tags: ["Vinilo", "Jazz fusion"],
-    search: "BadBadNotGood III vinyl",
-    storeUrl: "https://a.co/d/gkhZTeb",
-    storeLabel: "Ver en Amazon",
-  },
-  {
-    id: "MF-doom-mm-food-vinyl",
-    name: "Vinilo MF DOOM - Mm..Food",
-    category: "fun",
-    image: "https://m.media-amazon.com/images/I/81yLIHzNaDL._AC_SL1500_.jpg",
-    tags: ["Vinilo", "Hip hop"],
-    search: "MF DOOM Mm..Food vinyl",
-    storeUrl: "https://a.co/d/cI6VYac",
-    storeLabel: "Ver en Amazon",
-  },
-  {
-    id: "bbng-vinyl-iv",
-    name: "Vinilo BadBadNotGood IV",
-    category: "fun",
-    image: "https://m.media-amazon.com/images/I/719qN5IueZL._AC_SL1500_.jpg",
-    tags: ["Vinilo", "Jazz fusion"],
-    search: "BadBadNotGood IV vinyl",
-    storeUrl: "https://a.co/d/8Z9Jfz5",
-    storeLabel: "Ver en Amazon",
-  },
-  {
-    id: "Vinilo_BadBadNotGood_Mid_Spiral",
-    name: "Vinilo BadBadNotGood Mid Spiral",
-    category: "fun",
-    image: "https://m.media-amazon.com/images/I/61ERxKlDBSL._AC_SL1200_.jpg",
-    tags: ["Vinilo", "Jazz fusion"],
-    search: "BadBadNotGood Mid Spiral vinyl",
-    storeUrl: "https://a.co/d/h5tp8nG",
-    storeLabel: "Ver en Amazon",
-    purchased: true,
-    priority: true,
-  },
-  {
-    id: "Spider-Man_Kravens_Last_Hunt_New_Printing",
-    name: "Spider-Man: Kraven's Last Hunt (New Printing)",
-    category: "fun",
-    image: "https://m.media-amazon.com/images/I/813NhXAicML._SL1500_.jpg",
-    tags: ["Cómic", "Marvel"],
-    search: "Spider-Man Kraven's Last Hunt New Printing",
-    storeUrl:
-      "https://www.amazon.com.mx/dp/0785134506/?coliid=I3AF33JNNSOV45&colid=3AY48F4EYMKCM&psc=1&ref_=cm_sw_r_cp_ud_lstpd_P3VXW30R724KHRXBNCEM",
-    storeLabel: "Ver en Amazon",
-  },
-  {
-    id: "Spiderman-La-Ultima-Caceria-De-Kraven-Must-Have",
-    name: "Spiderman: La Última Cacería De Kraven (Must Have)",
-    category: "fun",
-    image: "https://m.media-amazon.com/images/I/71S0KCaGDEL._SL1500_.jpg",
-    tags: ["Cómic", "Marvel"],
-    search: "Spiderman La Última Cacería De Kraven Must Have",
-    storeUrl:
-      "https://www.amazon.com.mx/dp/8411016374/?coliid=IN94KTXA9PX6T&colid=3AY48F4EYMKCM&psc=1&ref_=cm_sw_r_cp_ud_lstpd_P3VXW30R724KHRXBNCEM_4",
-    storeLabel: "Ver en Amazon",
-  },
-  {
-    id: "Spiderman-PPoster-de-pelicula-De-vaiven-Tamano-68-58-cm-x-101-6-cm",
-    name: "Spiderman Póster de película De vaivén Tamaño 68.58 cm x 101.6 cm",
-    category: "fun",
-    image: "https://m.media-amazon.com/images/I/61FqGnjiXDL._AC_SL1000_.jpg",
-    tags: ["Póster", "Decoración"],
-    search: "Spiderman Póster de película De vaivén Tamaño 68.58 cm x 101.6 cm",
-    storeUrl: "https://a.co/d/aItGVcW",
-    storeLabel: "Ver en Amazon",
-  },
-  {
-    id: "Paladone-Marvel-Avengers-Logo-Light-Placa-decorativa-con-2-modos-de-iluminación",
-    name: "Paladone Marvel Avengers Logo Light Placa decorativa con 2 modos de iluminación",
-    category: "fun",
-    image: "https://m.media-amazon.com/images/I/810EQR6qKsL._AC_SL1500_.jpg",
-    tags: ["Lámpara", "Decorativa"],
-    search:
-      "Paladone Marvel Avengers Logo Light Placa decorativa con 2 modos de iluminación",
-    storeUrl: "https://a.co/d/1Vo4QJY",
-    storeLabel: "Ver en Amazon",
-  },
-  {
-    id: "Marvel-80-Años-Spiderman-Póster",
-    name: "Marvel 80 Años Spiderman Póster",
-    category: "fun",
-    image: "https://m.media-amazon.com/images/I/61YQcuXN1oL._AC_SL1000_.jpg",
-    tags: ["Póster", "Decoración"],
-    search: "Marvel 80 Años Spiderman Póster",
-    storeUrl: "https://a.co/d/bmrcytl",
-    storeLabel: "Ver en Amazon",
-  },
-
-  // === SNACKS (ejemplo genérico) ===============================
-  {
-    id: "Surtido_Turrones_Ean_200_Grs",
-    name: "Surtido Turrones Ean 200 Grs",
-    category: "snacks",
-    image: "https://m.media-amazon.com/images/I/71sLyKCcLcL._AC_SL1500_.jpg",
-    tags: ["Turrones", "Navideños"],
-    search: "Surtido Turrones Ean 200 Grs",
-    storeUrl: "https://a.co/d/acViYbG",
-    storeLabel: "Ver en Amazon",
-  },
-  {
-    id: "Turin_Masterpieces_Chocolates_rellenos_de_Ganache_Estuche_120_g",
-    name: "Turin Masterpieces Chocolates rellenos de Ganache Estuche 120 g",
-    category: "snacks",
-    image: "https://m.media-amazon.com/images/I/71jb5OSdBLL._AC_SL1500_.jpg",
-    tags: ["Chocolates", "Gourmet"],
-    search: "Turin Masterpieces Chocolates rellenos de Ganache Estuche 120g",
-    storeUrl: "https://a.co/d/7Zxw4yg",
-    storeLabel: "Ver en Amazon",
-  },
-  {
-    id: "Turin_Baileys_Original_Chocolates_con_leche_y_licor_Tubo_180g",
-    name: "Turin Baileys Original Chocolates con leche y licor Tubo 180g",
-    category: "snacks",
-    image: "https://m.media-amazon.com/images/I/61NrR2h5WdL._AC_SL1500_.jpg",
-    tags: ["Chocolates", "Baileys"],
-    search: "Turin Baileys Original Chocolates con leche y licor Tubo 180g",
-    storeUrl: "https://a.co/d/hTBVtea",
-    storeLabel: "Ver en Amazon",
-  },
-  {
-    id: "Gamesa_Florentinas_Sabor_Cajeta_Galletas_332g",
-    name: "Gamesa Florentinas Sabor Cajeta Galletas 332g",
-    category: "snacks",
-    image: "https://m.media-amazon.com/images/I/61imuzGc+TL._AC_SL1001_.jpg",
-    tags: ["Galletas", "Cajeta"],
-    search: "Gamesa Florentinas Sabor Cajeta Galletas 332g",
-    storeUrl: "https://a.co/d/grRil78",
-    storeLabel: "Ver en Amazon",
-  },
-  {
-    id: "Oyereli_Chocolate_Artesanal_Prémium_Especialidad_Avellanas_150gr",
-    name: "Oyereli Chocolate Artesanal Prémium Especialidad Avellanas 150gr",
-    category: "snacks",
-    image: "https://m.media-amazon.com/images/I/61POpSONw7L._AC_SL1500_.jpg",
-    tags: ["Chocolate", "Avellanas"],
-    search: "Oyereli Chocolate Artesanal Prémium Especialidad Avellanas 150gr",
-    storeUrl: "https://a.co/d/aGEwf2c",
-    storeLabel: "Ver en Amazon",
-  },
-
-  // === Otras categorias ===
-
-  {
-    id: "Pococo_Proyector_de_estrellas",
-    name: "Pococo Proyector de estrellas",
-    category: "all",
-    image: "https://m.media-amazon.com/images/I/71qT0Tg0xDL._AC_SL1500_.jpg",
-    tags: ["Proyector", "Estrellas"],
-    search: "Pococo Proyector de estrellas",
-    storeUrl: "https://a.co/d/8Tbm0ZE",
-    storeLabel: "Ver en Amazon",
-  },
-  {
-    id: "Synecdoche-New York-[Blu-ray]-[Importado]",
-    name: "Synecdoche New York [Blu-ray] [Importado]",
-    category: "all",
-    image: "https://m.media-amazon.com/images/I/91vclTLueyL._AC_SL1500_.jpg",
-    tags: ["Película", "Drama"],
-    search: "Synecdoche New York Blu-ray",
-    storeUrl: "https://a.co/d/hYAtJ4D",
-    storeLabel: "Ver en Amazon",
-  },
-  {
-    id: "Control-inalámbrico-Electric-Volt-para-Xbox Series-X|S",
-    name: "Control inalámbrico Electric Volt para Xbox Series X|S",
-    category: "all",
-    image: "https://m.media-amazon.com/images/I/51hFzk7eKTL._AC_SL1000_.jpg",
-    tags: ["Control", "Xbox Series X|S"],
-    search: "Control inalámbrico para Xbox Series X|S",
-    storeUrl: "https://a.co/d/dbZGAwd",
-    storeLabel: "Ver en Amazon",
-  },
-  {
-    id: "Amazon-fire-tv-stick-4k-max",
-    name: "Amazon Fire TV Stick 4K Max",
-    category: "all",
-    image: "https://m.media-amazon.com/images/I/71B0drJ9K2L._AC_SL1500_.jpg",
-    tags: ["Streaming", "4K"],
-    search: "Amazon Fire TV Stick 4K Max",
-    storeUrl: "https://a.co/d/gcBLt7V",
-    storeLabel: "Ver en Amazon",
-  },
-  {
-    id: "Sony-PS-LX310BT-Tocadiscos-con-conectividad-Bluetooth",
-    name: "Sony PS-LX310BT Tocadiscos con conectividad Bluetooth",
-    category: "all",
-    image: "https://m.media-amazon.com/images/I/51+Xja4sTxL._AC_SL1000_.jpg",
-    tags: ["Tocadiscos", "Bluetooth"],
-    search: "Sony PS-LX310BT Tocadiscos con conectividad Bluetooth",
-    storeUrl: "https://a.co/d/5F9Zp0l",
-    storeLabel: "Ver en Amazon",
-  },
-  {
-    id: "Oster-Freidora de Aire Digital-Recubrimiento-Oster-DiamondForce",
-    name: "Oster Freidora de Aire Digital Recubrimiento Oster DiamondForce",
-    category: "all",
-    image: "https://m.media-amazon.com/images/I/711RXjtIXwL._AC_SL1500_.jpg",
-    tags: ["Freidora de aire", "Digital"],
-    search: "Oster Freidora de Aire Digital Recubrimiento Oster DiamondForce",
-    storeUrl: "https://a.co/d/0Q50bs6",
-    storeLabel: "Ver en Amazon",
-  },
-  {
-    id: "MAGMALIFE-Maleta-de-Viaje-10-kg-Celestial-Carry-On",
-    name: "MAGMALIFE Maleta de Viaje 10 kg Celestial Carry-On",
-    category: "all",
-    image: "https://m.media-amazon.com/images/I/61nEZy1GXKL._AC_SX679_.jpg",
-    tags: ["Maleta", "Carry-On"],
-    search: "MAGMALIFE Maleta de Viaje 10 kg Celestial Carry-On",
-    storeUrl: "https://a.co/d/eRC5v2e",
-    storeLabel: "Ver en Amazon",
-    priority: true,
-  },
-  {
-    id: "Maleta-BAGIAU-de-Viaje-20-Carry-On-Rígida-Equipaje-de-Mano-Cabina-con-8-ruedas-y-candado-integrado",
-    name: 'Maleta BAGIAU de Viaje 20" Carry On Rígida, Equipaje de Mano Cabina con 8 ruedas y candado integrado',
-    category: "all",
-    image: "https://m.media-amazon.com/images/I/61phpfztkUL._AC_SX679_.jpg",
-    tags: ["Maleta", "Carry-On"],
-    search:
-      "Maleta BAGIAU de Viaje 20 Carry On Rígida Equipaje de Mano Cabina con 8 ruedas y candado integrado",
-    storeUrl: "https://a.co/d/0GGQ0eW",
-    storeLabel: "Ver en Amazon",
-    priority: true,
-  },
-  {
-    id: "Amazon-Basics-Equipaje-de-mano-rígido-de-53.3cm",
-    name: "Amazon Basics Equipaje de mano rígido de 53.3cm",
-    category: "all",
-    image: "https://m.media-amazon.com/images/I/91g9s0UqTBL._AC_SL1500_.jpg",
-    tags: ["Maleta", "Equipaje de mano"],
-    search: "Amazon Basics Equipaje de mano rígido de 53.3cm",
-    storeUrl: "https://a.co/d/6iSLtqC",
-    storeLabel: "Ver en Amazon",
-    priority: true,
-  },
-];
-const CATEGORY_CONTAINER_IDS = {
-  setup: "cards-setup",
-  daylife: "cards-daylife",
-  bass: "cards-bass",
-  perfumes: "cards-perfumes",
-  fun: "cards-fun",
-  snacks: "cards-snacks",
-  all: "cards-all",
+const filterState = {
+  tags: new Set(), // etiquetas seleccionadas
+  priorityOnly: false, // checkbox "Solo prioritarios"
+  hidePurchased: false, // checkbox "Ocultar comprados"
 };
 
 function createGiftCard(gift) {
@@ -645,7 +97,6 @@ function createGiftCard(gift) {
 }
 
 async function injectFilterComponent() {
-  // 👈 AQUÍ estaba el primer problema: debe ser [data-filter-placeholder]
   const container = document.querySelector("[data-filter-placeholder]");
   if (!container) return;
 
@@ -662,9 +113,7 @@ async function injectFilterComponent() {
   }
 }
 
-// Pinta todas las cards en sus categorías
 function renderAllGifts() {
-  // Limpia contenedores por si algún día reaplicas filtros, etc.
   Object.values(CATEGORY_CONTAINER_IDS).forEach((id) => {
     const c = document.getElementById(id);
     if (c) c.innerHTML = "";
@@ -682,7 +131,216 @@ function renderAllGifts() {
   });
 }
 
+function buildTagOptionsFromGifts(gifts) {
+  const select = document.querySelector("[data-filter-tag-select]");
+  if (!select) return;
+
+  const allTags = new Set();
+
+  gifts.forEach((gift) => {
+    (gift.tags || []).forEach((tag) => allTags.add(tag));
+  });
+  select.innerHTML = "";
+  const allOption = document.createElement("option");
+  allOption.value = "__all__";
+  allOption.textContent = "Todas las etiquetas";
+  select.appendChild(allOption);
+
+  [...allTags].sort().forEach((tag) => {
+    const opt = document.createElement("option");
+    opt.value = tag;
+    opt.textContent = tag;
+    select.appendChild(opt);
+  });
+}
+
+function buildTagOptionsFromGifts() {
+  const select = document.querySelector("[data-filter-tag-select]");
+  if (!select) return;
+
+  const allTags = new Set();
+
+  gifts.forEach((gift) => {
+    (gift.tags || []).forEach((tag) => allTags.add(tag));
+  });
+  select.innerHTML = "";
+  const allOption = document.createElement("option");
+  allOption.value = "__all__";
+  allOption.textContent = "Todas las etiquetas";
+  select.appendChild(allOption);
+
+  [...allTags].sort().forEach((tag) => {
+    const opt = document.createElement("option");
+    opt.value = tag;
+    opt.textContent = tag;
+    select.appendChild(opt);
+  });
+}
+
+function renderWithFilters() {
+  const filteredByCategory = {};
+
+  gifts.forEach((gift) => {
+    // — Filtro por prioridad
+    if (filterState.priorityOnly && !gift.priority) return;
+
+    // — Filtro por comprados
+    if (filterState.hidePurchased && gift.purchased) return;
+
+    // — Filtro por etiquetas
+    if (filterState.tags.size > 0) {
+      const giftTags = gift.tags || [];
+      const hasAtLeastOne = giftTags.some((t) => filterState.tags.has(t));
+      if (!hasAtLeastOne) return;
+    }
+
+    // Si pasó todos los filtros, lo metemos en su categoría
+    if (!filteredByCategory[gift.category]) {
+      filteredByCategory[gift.category] = [];
+    }
+    filteredByCategory[gift.category].push(gift);
+  });
+
+  Object.entries(CATEGORY_CONTAINER_IDS).forEach(
+    ([categoryKey, containerId]) => {
+      const container = document.getElementById(containerId);
+      if (!container) return;
+
+      container.innerHTML = "";
+
+      const catGifts = filteredByCategory[categoryKey] || [];
+
+      if (catGifts.length === 0) {
+        const msg = document.createElement("p");
+        msg.className = "no-results-message";
+        msg.textContent =
+          "No se encontraron productos que coincidan con los filtros en esta sección.";
+        container.appendChild(msg);
+        return;
+      }
+
+      catGifts.forEach((gift) => {
+        const card = createGiftCard(gift);
+        container.appendChild(card);
+      });
+    }
+  );
+}
+
+function addActiveTagChip(tag) {
+  const container = document.querySelector("[data-active-tags]");
+  const select = document.querySelector("[data-filter-tag-select]");
+  if (!container || !select) return;
+  if (filterState.tags.has(tag)) return;
+
+  filterState.tags.add(tag);
+
+  const chip = document.createElement("button");
+  chip.type = "button";
+  chip.className = "filter-chip filter-chip--active-tag";
+  chip.dataset.tag = tag;
+  chip.textContent = tag + " ✕";
+
+  chip.addEventListener("click", () => {
+    filterState.tags.delete(tag);
+    chip.remove();
+
+    const opt = document.createElement("option");
+    opt.value = tag;
+    opt.textContent = tag;
+    select.appendChild(opt);
+
+    const options = [...select.querySelectorAll("option")]
+      .filter((o) => o.value !== "__all__")
+      .sort((a, b) => a.textContent.localeCompare(b.textContent));
+    const allOpt = select.querySelector('option[value="__all__"]');
+    select.innerHTML = "";
+    if (allOpt) select.appendChild(allOpt);
+    options.forEach((o) => select.appendChild(o));
+
+    renderWithFilters();
+  });
+
+  container.appendChild(chip);
+}
+function setupTagSelectHandler() {
+  const select = document.querySelector("[data-filter-tag-select]");
+  if (!select) return;
+
+  select.addEventListener("change", () => {
+    const value = select.value;
+
+    if (!value || value === "__all__") {
+      filterState.tags.clear();
+
+      const activeTagsContainer = document.querySelector("[data-active-tags]");
+      if (activeTagsContainer) {
+        activeTagsContainer.innerHTML = "";
+      }
+      buildTagOptionsFromGifts();
+
+      const newSelect = document.querySelector("[data-filter-tag-select]");
+      if (newSelect) {
+        newSelect.value = "__all__";
+      }
+
+      renderWithFilters();
+      return;
+    }
+
+    const optionToRemove = select.querySelector(`option[value="${value}"]`);
+    if (optionToRemove) optionToRemove.remove();
+    select.value = "__all__";
+    addActiveTagChip(value);
+    renderWithFilters();
+  });
+}
+
+function setupCheckboxFilters() {
+  const priorityCheckbox = document.querySelector("[data-filter-priority]");
+  const purchasedCheckbox = document.querySelector("[data-filter-purchased]");
+
+  if (priorityCheckbox) {
+    priorityCheckbox.addEventListener("change", () => {
+      filterState.priorityOnly = priorityCheckbox.checked;
+      renderWithFilters();
+    });
+  }
+
+  if (purchasedCheckbox) {
+    purchasedCheckbox.addEventListener("change", () => {
+      filterState.hidePurchased = purchasedCheckbox.checked;
+      renderWithFilters();
+    });
+  }
+}
+function setupHideOnScroll() {
+  const topShell = document.querySelector(".top-shell");
+  if (!topShell) return;
+
+  let lastScrollY = window.scrollY;
+
+  window.addEventListener("scroll", () => {
+    const current = window.scrollY;
+
+    // Scroll hacia abajo (y no justo al inicio de la página)
+    if (current > lastScrollY && current > 80) {
+      topShell.classList.add("top-shell--hidden");
+    } else {
+      // Scroll hacia arriba o cerca del top
+      topShell.classList.remove("top-shell--hidden");
+    }
+
+    lastScrollY = current;
+  });
+}
+
+
 document.addEventListener("DOMContentLoaded", async () => {
-  await injectFilterComponent(); // primero insertamos el filtro
-  renderAllGifts(); // 👈 AQUÍ estaba el segundo problema (antes llamabas createGiftCard())
+  await injectFilterComponent();
+  buildTagOptionsFromGifts();
+  setupHideOnScroll(); 
+  setupTagSelectHandler();
+  setupCheckboxFilters();
+  renderWithFilters();
 });

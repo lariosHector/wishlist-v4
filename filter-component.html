@@ -1,30 +1,43 @@
-<section id="filters" class="filters-container">
-  <h2 class="filters-title">Filtros</h2>
-
-  <div class="filter-group">
-    <label class="filter-label">Etiquetas</label>
-    <div id="filter-tags" class="filter-tags-list"></div>
-  </div>
-
-  <div class="filter-group">
-    <label class="filter-label">Prioridad</label>
-    <div class="filter-options">
-      <label><input type="radio" name="filter-priority" value="all" checked> Todos</label>
-      <label><input type="radio" name="filter-priority" value="priority"> Prioritarios</label>
-      <label><input type="radio" name="filter-priority" value="non-priority"> No prioritarios</label>
+<!-- filter-component.html -->
+<section class="filter-bar">
+  <div class="filter-bar__inner">
+    <!-- Bloque izquierdo: título + descripción corta -->
+    <div class="filter-bar__block filter-bar__block--meta">
+      <p class="filter-bar__title">Filtros de wishlist</p>
     </div>
-  </div>
 
-  <div class="filter-group">
-    <label class="filter-label">Estado</label>
-    <div class="filter-options">
-      <label><input type="radio" name="filter-status" value="all" checked> Todos</label>
-      <label><input type="radio" name="filter-status" value="purchased"> Comprados</label>
-      <label><input type="radio" name="filter-status" value="pending"> Sin comprar</label>
+    <!-- Bloque derecho: controles -->
+    <div class="filter-bar__block filter-bar__block--controls">
+      <!-- Filtros por estado -->
+      <div class="filter-toggle-row">
+        <label class="filter-toggle">
+          <input type="checkbox" data-filter-priority />
+          <span>Solo prioritarios</span>
+        </label>
+
+        <label class="filter-toggle">
+          <input type="checkbox" data-filter-purchased />
+          <span>Ocultar comprados</span>
+        </label>
+      </div>
+
+      <!-- Filtros por etiqueta (chips; luego se rellenan con JS) -->
+      <div class="filter-tags-row">
+        <!-- Contenedor de chips activos -->
+        <div class="filter-active-tags" data-active-tags></div>
+
+        <div class="filter-dropdown">
+          <label class="sr-only" for="filter-tags-select">Seleccionar etiqueta</label>
+          <select
+            id="filter-tags-select"
+            class="filter-chip filter-chip--select"
+            data-filter-tag-select
+          >
+            <option value="__all__">Todas las etiquetas</option>
+          </select>
+        </div>
+      </div>
+
     </div>
-  </div>
-
-  <div class="filter-actions">
-    <button id="clear-filters" type="button">Limpiar filtros</button>
   </div>
 </section>

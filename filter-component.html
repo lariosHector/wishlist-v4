@@ -1,0 +1,30 @@
+<section id="filters" class="filters-container">
+  <h2 class="filters-title">Filtros</h2>
+
+  <div class="filter-group">
+    <label class="filter-label">Etiquetas</label>
+    <div id="filter-tags" class="filter-tags-list"></div>
+  </div>
+
+  <div class="filter-group">
+    <label class="filter-label">Prioridad</label>
+    <div class="filter-options">
+      <label><input type="radio" name="filter-priority" value="all" checked> Todos</label>
+      <label><input type="radio" name="filter-priority" value="priority"> Prioritarios</label>
+      <label><input type="radio" name="filter-priority" value="non-priority"> No prioritarios</label>
+    </div>
+  </div>
+
+  <div class="filter-group">
+    <label class="filter-label">Estado</label>
+    <div class="filter-options">
+      <label><input type="radio" name="filter-status" value="all" checked> Todos</label>
+      <label><input type="radio" name="filter-status" value="purchased"> Comprados</label>
+      <label><input type="radio" name="filter-status" value="pending"> Sin comprar</label>
+    </div>
+  </div>
+
+  <div class="filter-actions">
+    <button id="clear-filters" type="button">Limpiar filtros</button>
+  </div>
+</section>

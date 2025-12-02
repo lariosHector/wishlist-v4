@@ -328,6 +328,18 @@ const gifts = [
     storeLabel: "Ver en Amazon",
   },
   {
+    id: "Vinilo_BadBadNotGood_Mid_Spiral",
+    name: "Vinilo BadBadNotGood Mid Spiral",
+    category: "fun",
+    image: "https://m.media-amazon.com/images/I/61ERxKlDBSL._AC_SL1200_.jpg",
+    tags: ["Vinilo", "Jazz fusion"],
+    search: "BadBadNotGood Mid Spiral vinyl",
+    storeUrl: "https://a.co/d/h5tp8nG",
+    storeLabel: "Ver en Amazon",
+    purchased: true,
+    priority: true,
+  },
+  {
     id: "Spider-Man_Kravens_Last_Hunt_New_Printing",
     name: "Spider-Man: Kraven's Last Hunt (New Printing)",
     category: "fun",
@@ -530,7 +542,6 @@ const gifts = [
     priority: true,
   },
 ];
-
 const CATEGORY_CONTAINER_IDS = {
   setup: "cards-setup",
   daylife: "cards-daylife",
@@ -538,7 +549,7 @@ const CATEGORY_CONTAINER_IDS = {
   perfumes: "cards-perfumes",
   fun: "cards-fun",
   snacks: "cards-snacks",
-  all: "cards-all"
+  all: "cards-all",
 };
 
 function createGiftCard(gift) {
@@ -546,13 +557,22 @@ function createGiftCard(gift) {
   article.className =
     "gift-card gift-card--soft relative flex flex-col h-full transform transition hover:-translate-y-1 hover:shadow-lg";
 
-  // Priority badge
+  // Badge de prioridad
   if (gift.priority) {
     const badge = document.createElement("div");
     badge.className =
       "gift-card__priority absolute top-2 right-2 bg-yellow-400 text-black text-xs font-semibold px-2 py-1 rounded z-10";
     badge.textContent = "Prioritario";
     article.appendChild(badge);
+  }
+
+  // Badge de comprado
+  if (gift.purchased) {
+    const purchasedBadge = document.createElement("div");
+    purchasedBadge.className =
+      "gift-card__purchased absolute top-2 left-2 bg-green-500 text-white text-xs font-semibold px-2 py-1 rounded z-10";
+    purchasedBadge.textContent = "Comprado";
+    article.appendChild(purchasedBadge);
   }
 
   const media = document.createElement("div");
@@ -624,14 +644,45 @@ function createGiftCard(gift) {
   return article;
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+async function injectFilterComponent() {
+  // 👈 AQUÍ estaba el primer problema: debe ser [data-filter-placeholder]
+  const container = document.querySelector("[data-filter-placeholder]");
+  if (!container) return;
+
+  try {
+    const res = await fetch("filter-component.html");
+    if (!res.ok) {
+      console.warn("No se pudo cargar filter-component.html");
+      return;
+    }
+    const html = await res.text();
+    container.innerHTML = html;
+  } catch (error) {
+    console.error("Error cargando filter-component.html", error);
+  }
+}
+
+// Pinta todas las cards en sus categorías
+function renderAllGifts() {
+  // Limpia contenedores por si algún día reaplicas filtros, etc.
+  Object.values(CATEGORY_CONTAINER_IDS).forEach((id) => {
+    const c = document.getElementById(id);
+    if (c) c.innerHTML = "";
+  });
+
   gifts.forEach((gift) => {
     const containerId = CATEGORY_CONTAINER_IDS[gift.category];
     if (!containerId) return;
+
     const container = document.getElementById(containerId);
     if (!container) return;
 
     const card = createGiftCard(gift);
     container.appendChild(card);
   });
+}
+
+document.addEventListener("DOMContentLoaded", async () => {
+  await injectFilterComponent(); // primero insertamos el filtro
+  renderAllGifts(); // 👈 AQUÍ estaba el segundo problema (antes llamabas createGiftCard())
 });

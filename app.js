@@ -143,7 +143,7 @@ function buildTagOptionsFromGifts(gifts) {
   select.innerHTML = "";
   const allOption = document.createElement("option");
   allOption.value = "__all__";
-  allOption.textContent = "Todas las etiquetas";
+  allOption.textContent = "Filtrar por etiqueta";
   select.appendChild(allOption);
 
   [...allTags].sort().forEach((tag) => {
@@ -166,7 +166,7 @@ function buildTagOptionsFromGifts() {
   select.innerHTML = "";
   const allOption = document.createElement("option");
   allOption.value = "__all__";
-  allOption.textContent = "Todas las etiquetas";
+  allOption.textContent = "Filtrar por etiqueta";
   select.appendChild(allOption);
 
   [...allTags].sort().forEach((tag) => {

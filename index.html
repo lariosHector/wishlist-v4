@@ -31,13 +31,15 @@
 
           <!-- Desktop nav -->
           <nav class="hidden md:flex items-center gap-2">
-            <a href="#setup" class="chip chip--ghost">Setup</a>
-            <a href="#daylife" class="chip chip--ghost">Día a día</a>
-            <a href="#music" class="chip chip--ghost">Música</a>
-            <a href="#perfumes" class="chip chip--ghost">Perfumes</a>
-            <a href="#fun" class="chip chip--ghost">Entretenimiento</a>
-            <a href="#snacks" class="chip chip--ghost">Comestibles</a>
-            <a href="#all-links" class="chip chip--ghost">Otros</a>
+            <a href="#setup" class="chip chip--ghost" data-nav-section="setup">Setup</a>
+            <a href="#daylife" class="chip chip--ghost" data-nav-section="daylife">Día a día</a>
+            <a href="#music" class="chip chip--ghost" data-nav-section="bass">Música</a>
+            <a href="#perfumes" class="chip chip--ghost" data-nav-section="perfumes">Perfumes</a>
+            <a href="#fun" class="chip chip--ghost" data-nav-section="fun">Entretenimiento</a>
+            <a href="#snacks" class="chip chip--ghost" data-nav-section="snacks">Comestibles</a>
+            <a href="#all-links" class="chip chip--ghost" data-nav-section="all">Otros</a>
+            <a href="#" class="chip chip--ghost" data-nav-section="__all__">Todos</a>
+
           </nav>
 
           <!-- Mobile menu -->
@@ -52,13 +54,14 @@
             </summary>
 
             <div class="absolute right-0 mt-2 w-64 bg-white/95 backdrop-blur-md rounded-lg shadow-lg p-3 flex flex-col gap-2">
-              <a href="#setup" class="chip chip--ghost w-full text-left">Setup</a>
-              <a href="#daylife" class="chip chip--ghost w-full text-left">Día a día</a>
-              <a href="#music" class="chip chip--ghost w-full text-left">Música</a>
-              <a href="#perfumes" class="chip chip--ghost w-full text-left">Perfumes</a>
-              <a href="#fun" class="chip chip--ghost w-full text-left">Entretenimiento</a>
-              <a href="#snacks" class="chip chip--ghost w-full text-left">Snacks</a>
-              <a href="#all-links" class="chip chip--ghost w-full text-left">Otros</a>
+              <a href="#setup" class="chip chip--ghost w-full text-left" data-nav-section="setup">Setup</a>
+              <a href="#daylife" class="chip chip--ghost w-full text-left" data-nav-section="daylife">Día a día</a>
+              <a href="#music" class="chip chip--ghost w-full text-left" data-nav-section="bass">Música</a>
+              <a href="#perfumes" class="chip chip--ghost w-full text-left" data-nav-section="perfumes">Perfumes</a>
+              <a href="#fun" class="chip chip--ghost w-full text-left" data-nav-section="fun">Entretenimiento</a>
+              <a href="#snacks" class="chip chip--ghost w-full text-left" data-nav-section="snacks">Snacks</a>
+              <a href="#all-links" class="chip chip--ghost w-full text-left" data-nav-section="all">Otros</a>
+              <a href="#" class="chip chip--ghost w-full text-left" data-nav-section="__all__">Todos</a>
             </div>
           </details>
         </div>
@@ -81,7 +84,7 @@
 
     <main class="max-w-6xl mx-auto px-4 pb-16 space-y-16">
       <!-- Setup de trabajo -->
-      <section id="setup" class="category-block">
+      <section id="setup" class="category-block" data-section="setup">
         <div class="category-header grid grid-cols-1 gap-6 items-center">
           <div>
             <p class="category-kicker">Setup &amp; escritorio</p>
@@ -105,7 +108,7 @@
       </section>
 
       <!-- Día a día -->
-      <section id="daylife" class="category-block">
+      <section id="daylife" class="category-block" data-section="daylife">
         <div class="category-headergrid grid-cols-1 gap-6 items-center">
           <p class="category-kicker">Vida diaria &amp; movilidad</p>
           <h2 class="mt-3 text-3xl md:text-4xl font-extrabold tracking-tight">Cosas que uso todos los días</h2>
@@ -124,7 +127,7 @@
       </section>
 
       <!-- Accesorios bajo eléctrico -->
-      <section id="music" class="category-block">
+      <section id="music" class="category-block" data-section="bass">
         <div class="category-header grid grid-cols-1 gap-6 items-center">
           <p class="category-kicker">Música</p>
           <h2 class="mt-3 text-3xl md:text-4xl font-extrabold tracking-tight">Accesorios para bajo eléctrico</h2>
@@ -140,7 +143,7 @@
       </section>
 
       <!-- Aseo personal -->
-      <section id="perfumes" class="category-block">
+      <section id="perfumes" class="category-block" data-section="perfumes">
         <div class="category-header grid grid-cols-1 gap-6 items-center">
           <p class="category-kicker">Cuidado y aseo personal</p>
           <h2 class="mt-3 text-3xl md:text-4xl font-extrabold tracking-tight">Perfumería</h2>
@@ -157,7 +160,7 @@
       </section>
 
       <!-- Entretenimiento -->
-      <section id="fun" class="category-block">
+      <section id="fun" class="category-block" data-section="fun">
         <div class="category-header grid grid-cols-1 gap-6 items-center">
           <p class="category-kicker">Entretenimiento &amp; coleccionables</p>
           <h2 class="mt-3 text-3xl md:text-4xl font-extrabold tracking-tight">Cosas frikis que siempre se agradecen</h2>
@@ -173,7 +176,7 @@
       </section>
 
       <!-- Dulces -->
-      <section id="snacks" class="category-block">
+      <section id="snacks" class="category-block" data-section="snacks">
         <div class="category-header grid grid-cols-1 gap-6 items-center">
           <p class="category-kicker">Extras comestibles</p>
           <h2 class="mt-3 text-3xl md:text-4xl font-extrabold tracking-tight">Golosinas &amp; Dulces</h2>
@@ -189,7 +192,7 @@
       </section>
 
       <!-- Otros -->
-      <section id="all-links" class="category-block">
+      <section id="all-links" class="category-block" data-section="all">
         <div class="category-header">
           <p class="category-kicker">RANDOM</p>
           <h2 class="mt-3 text-3xl md:text-4xl font-extrabold tracking-tight">Otros no clasificados</h2>

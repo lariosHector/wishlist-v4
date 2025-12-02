@@ -3,6 +3,7 @@ const filterState = {
   priorityOnly: false, // checkbox "Solo prioritarios"
   hidePurchased: false, // checkbox "Ocultar comprados"
 };
+let activeSection = "__all__";
 
 function createGiftCard(gift) {
   const article = document.createElement("article");
@@ -198,53 +199,66 @@ function buildTagOptionsFromGifts() {
 }
 
 function renderWithFilters() {
-  const filteredByCategory = {};
+  // 1. Limpiar todos los contenedores
+  Object.values(CATEGORY_CONTAINER_IDS).forEach((containerId) => {
+    const container = document.getElementById(containerId);
+    if (container) container.innerHTML = "";
+  });
 
-  gifts.forEach((gift) => {
-    // — Filtro por prioridad
-    if (filterState.priorityOnly && !gift.priority) return;
+  const visibleCategories = new Set();
 
-    // — Filtro por comprados
-    if (filterState.hidePurchased && gift.purchased) return;
+  // 2. Aplicar filtros de prioridad / purchased / tags
+  const filtered = gifts.filter((gift) => {
+    // Prioridad
+    if (filterState.priorityOnly && !gift.priority) return false;
 
-    // — Filtro por etiquetas
+    // Ocultar comprados
+    if (filterState.hidePurchased && gift.purchased) return false;
+
+    // Filtro por etiquetas
     if (filterState.tags.size > 0) {
       const giftTags = gift.tags || [];
       const hasAtLeastOne = giftTags.some((t) => filterState.tags.has(t));
-      if (!hasAtLeastOne) return;
+      if (!hasAtLeastOne) return false;
     }
 
-    // Si pasó todos los filtros, lo metemos en su categoría
-    if (!filteredByCategory[gift.category]) {
-      filteredByCategory[gift.category] = [];
-    }
-    filteredByCategory[gift.category].push(gift);
+    return true;
   });
 
-  Object.entries(CATEGORY_CONTAINER_IDS).forEach(
-    ([categoryKey, containerId]) => {
-      const container = document.getElementById(containerId);
-      if (!container) return;
+  // 3. Pintar solo la sección activa (o todas si "__all__")
+  filtered.forEach((gift) => {
+    // Si hay sección activa específica y este gift no es de esa categoría, lo saltamos
+    if (activeSection !== "__all__" && gift.category !== activeSection) return;
 
-      container.innerHTML = "";
+    const containerId = CATEGORY_CONTAINER_IDS[gift.category];
+    if (!containerId) return;
 
-      const catGifts = filteredByCategory[categoryKey] || [];
+    const container = document.getElementById(containerId);
+    if (!container) return;
 
-      if (catGifts.length === 0) {
-        const msg = document.createElement("p");
-        msg.className = "no-results-message";
-        msg.textContent =
-          "No se encontraron productos que coincidan con los filtros en esta sección.";
-        container.appendChild(msg);
-        return;
+    const card = createGiftCard(gift);
+    container.appendChild(card);
+
+    visibleCategories.add(gift.category);
+  });
+
+  // 4. Mostrar/ocultar secciones según activeSection y si tienen resultados
+  Object.keys(CATEGORY_CONTAINER_IDS).forEach((category) => {
+    const sectionEl = document.querySelector(`[data-section="${category}"]`);
+    if (!sectionEl) return;
+
+    if (activeSection === "__all__") {
+      // Modo "todas las secciones": solo ocultar las que no tengan resultados
+      sectionEl.style.display = visibleCategories.has(category) ? "" : "none";
+    } else {
+      // Modo "una sección": solo mostrar la elegida y si tiene resultados
+      if (category === activeSection && visibleCategories.has(category)) {
+        sectionEl.style.display = "";
+      } else {
+        sectionEl.style.display = "none";
       }
-
-      catGifts.forEach((gift) => {
-        const card = createGiftCard(gift);
-        container.appendChild(card);
-      });
     }
-  );
+  });
 }
 
 function addActiveTagChip(tag) {
@@ -354,6 +368,34 @@ function setupHideOnScroll() {
     lastScrollY = current;
   });
 }
+function setupNavSectionFilter() {
+  const navLinks = document.querySelectorAll("[data-nav-section]");
+  if (!navLinks.length) return;
+
+  navLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      const section = link.dataset.navSection || "__all__";
+      activeSection = section;
+
+      // Re-render con la sección activa
+      renderWithFilters();
+
+      // Scroll suave a la sección, si no es "__all__"
+      if (activeSection !== "__all__") {
+        const target = document.querySelector(
+          `[data-section="${activeSection}"]`
+        );
+        if (target) {
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      } else {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    });
+  });
+}
 
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -362,5 +404,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   setupHideOnScroll(); 
   setupTagSelectHandler();
   setupCheckboxFilters();
+  setupNavSectionFilter();
   renderWithFilters();
 });

@@ -569,6 +569,17 @@ window.gifts = [
     storeLabel: "Ver en Amazon",
     priority: true,
   },
+  {
+    id: "El-aire-del-desierto-marroqui",
+    name: "El aire del desierto marroquí",
+    category: "perfumes",
+    image: "https://tauerperfumes.com.mx/wp-content/uploads/2020/07/001.jpg",
+    tags: ["Perfumes"],
+    search: "Tauer Perfumes El aire del desierto marroquí",
+    storeUrl: "https://tauerperfumes.com.mx/?product=lair-du-desert-marcoain",
+    storeLabel: "Ver en Tauer",
+    priority: true, 
+  },
 ];
 
 window.CATEGORY_CONTAINER_IDS = {
@@ -579,4 +590,5 @@ window.CATEGORY_CONTAINER_IDS = {
   fun: "cards-fun",
   snacks: "cards-snacks",
   all: "cards-all",
+  premium: "cards-premium",
 };

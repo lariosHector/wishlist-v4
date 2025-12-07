@@ -90,6 +90,8 @@ function createGiftCard(gift) {
       storeClass = "gift-card__corsair_button";
     } else if (label.includes("lego")) {  
       storeClass = "gift-card__lego_button";
+    } else if (label.includes("tauer")) {  
+      storeClass = "gift-card__tauer_button";
     }
 
     storeLink.className = storeClass;

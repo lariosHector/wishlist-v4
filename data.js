@@ -25,6 +25,7 @@ window.gifts = [
       "https://www.ikea.com/mx/es/p/sambord-lampara-de-escritorio-negro-blanco-10586958",
     storeLabel: "Ver en IKEA",
     priority: true,
+    purchased: true,
   },
   {
     id: "multicontacto-escritorio",

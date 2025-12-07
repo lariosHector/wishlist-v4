@@ -280,6 +280,7 @@ window.gifts = [
     search: "Armaf Odyssey Dubai Chocolat EDP 100ml",
     storeUrl: "https://a.co/d/2WleseG",
     storeLabel: "Ver en Amazon",
+    priority: true,
   },
   {
     id: "Lacoste_L.12.12_Blanco",

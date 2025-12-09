@@ -111,7 +111,6 @@ window.gifts = [
     storeUrl:
       "https://www.mi.com/mx/product/mi-computer-monitor-light-bar/buy/",
     storeLabel: "Ver en Xiaomi",
-    priority: true,
   },
   {
     id: "echo-dot",
@@ -472,6 +471,20 @@ window.gifts = [
     storeUrl: "https://a.co/d/aGEwf2c",
     storeLabel: "Ver en Amazon",
   },
+  // === Especiales / Varios ===
+  {
+    id: "Escritorio-elevable-ICON-sin-cubierta-negro",
+    name: "Escritorio elevable ICON sin cubierta negro",
+    category: "special",
+    image:
+      "https://cymisa.com.mx/media/catalog/product/i/c/icon_black_7245324_1_1.jpg",
+    tags: ["Muebles", "Tecnología"],
+    search: "Escritorio elevable ICON sin cubierta negro",
+    storeUrl:
+      "https://cymisa.com.mx/escritorio-elevable-icon-para-cubierta-de-1100-a-1800-mm-con-altura-ajustable-de-600-a-1230-mm-capacidad-de-carga-125kg.html",
+    storeLabel: "Ver en la web",
+    priority: true,
+  },
 
   // === Otras categorias ===
 
@@ -572,13 +585,24 @@ window.gifts = [
   {
     id: "El-aire-del-desierto-marroqui",
     name: "El aire del desierto marroquí",
-    category: "perfumes",
+    category: "special",
     image: "https://tauerperfumes.com.mx/wp-content/uploads/2020/07/001.jpg",
     tags: ["Perfumes"],
     search: "Tauer Perfumes El aire del desierto marroquí",
     storeUrl: "https://tauerperfumes.com.mx/?product=lair-du-desert-marcoain",
     storeLabel: "Ver en Tauer",
-    priority: true, 
+    priority: true,
+  },
+  {
+    id: "Soporte-de-Pared-articulado-de-Movimiento-Completo-para-TV",
+    name: "Soporte de Pared articulado de Movimiento Completo para TV",
+    category: "special",
+    tags: ["Tecnología"],
+    search: "Soporte de Pared articulado de Movimiento Completo para TV",
+    storeUrl: "https://a.co/d/2r3tBo2",
+    storeLabel: "Ver en Amazon",
+    image: "https://m.media-amazon.com/images/I/71IES9jQ12L._AC_SL1500_.jpg",
+    priority: true,
   },
 ];
 
@@ -590,5 +614,5 @@ window.CATEGORY_CONTAINER_IDS = {
   fun: "cards-fun",
   snacks: "cards-snacks",
   all: "cards-all",
-  premium: "cards-premium",
+  special: "cards-special",
 };
